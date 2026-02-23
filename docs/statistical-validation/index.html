@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-statistical-validation" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Statistical Validation | Fairness Audit Playbook</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://herkata.github.io/fairness-audit/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://herkata.github.io/fairness-audit/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://herkata.github.io/fairness-audit/docs/statistical-validation"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Statistical Validation | Fairness Audit Playbook"><meta data-rh="true" name="description" content="window.print()}&gt;"><meta data-rh="true" property="og:description" content="window.print()}&gt;"><link data-rh="true" rel="icon" href="/fairness-audit/img/katkatu-merleg.svg"><link data-rh="true" rel="canonical" href="https://herkata.github.io/fairness-audit/docs/statistical-validation"><link data-rh="true" rel="alternate" href="https://herkata.github.io/fairness-audit/docs/statistical-validation" hreflang="en"><link data-rh="true" rel="alternate" href="https://herkata.github.io/fairness-audit/docs/statistical-validation" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Statistical Validation","item":"https://herkata.github.io/fairness-audit/docs/statistical-validation"}]}</script><link rel="alternate" type="application/rss+xml" href="/fairness-audit/blog/rss.xml" title="Fairness Audit Playbook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/fairness-audit/blog/atom.xml" title="Fairness Audit Playbook Atom Feed"><link rel="stylesheet" href="/fairness-audit/assets/css/styles.69bbdfb0.css">
+<script src="/fairness-audit/assets/js/runtime~main.6d003bb2.js" defer="defer"></script>
+<script src="/fairness-audit/assets/js/main.0fb0aa49.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/fairness-audit/img/katkatu-merleg.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/fairness-audit/"><div class="navbar__logo"><img src="/fairness-audit/img/katkatu-merleg.svg" alt="Kétkarú mérleg" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/fairness-audit/img/katkatu-merleg.svg" alt="Kétkarú mérleg" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fairness Audit Playbook</b></a><a class="navbar__item navbar__link" href="/fairness-audit/docs/fairness-definition-literature">Literature</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/fairness-audit/docs/implementation-guide">Tools</a><a class="navbar__item navbar__link" href="/fairness-audit/docs/sources">Sources and Plans</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Herkata/fairness-audit" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/implementation-guide"><span title="Implementation Guide" class="linkLabel_WmDU">Implementation Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/historical-context-assessment"><span title="Historical Context Assessment Tool" class="linkLabel_WmDU">Historical Context Assessment Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/fairness-definition-selection"><span title="Fairness Definition Selection Tool" class="linkLabel_WmDU">Fairness Definition Selection Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/bias-source-identification"><span title="Bias Source Identification Tool" class="linkLabel_WmDU">Bias Source Identification Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/comprehensive-metrics"><span title="Comprehensive Metrics Tool" class="linkLabel_WmDU">Comprehensive Metrics Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/fairness-audit/docs/statistical-validation"><span title="Statistical Validation" class="linkLabel_WmDU">Statistical Validation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/reporting"><span title="Reporting and Visualization" class="linkLabel_WmDU">Reporting and Visualization</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/case-studies"><span title="Case Study" class="linkLabel_WmDU">Case Study</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/fairness-audit/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Statistical Validation</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Statistical Validation</h1></header>
+<div class="print-wrap"><button type="button" class="print-btn"><span aria-hidden="true" role="img" class="print-icon">💾</span><span>Save filled page as PDF</span></button><span class="print-tip">Use your browser&#x27;s print dialog and choose &quot;Save as PDF&quot; to keep filled inputs.</span></div>
+<aside><h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-statistical-validation-matters"><strong>Why Statistical Validation Matters</strong><a href="#why-statistical-validation-matters" class="hash-link" aria-label="Direct link to why-statistical-validation-matters" title="Direct link to why-statistical-validation-matters" translate="no">​</a></h2><p>Fairness metrics calculated on real datasets contain <strong>uncertainty</strong>. Without statistical validation:</p><ul>
+<li class="">You may act on <strong>random noise</strong> (false positives).</li>
+<li class="">You may ignore <strong>real disparities</strong> hidden by sampling variability (false negatives).</li>
+<li class="">You may misinterpret small subgroup metrics due to unstable estimates.</li>
+</ul><p>Statistical validation ensures that measured disparities represent <strong>genuine, reliable fairness issues</strong> rather than artifacts of limited data.</p></aside>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-1-quantify-uncertainty-in-fairness-metrics"><strong>Step 1: Quantify Uncertainty in Fairness Metrics</strong><a href="#step-1-quantify-uncertainty-in-fairness-metrics" class="hash-link" aria-label="Direct link to step-1-quantify-uncertainty-in-fairness-metrics" title="Direct link to step-1-quantify-uncertainty-in-fairness-metrics" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="objective">Objective<a href="#objective" class="hash-link" aria-label="Direct link to Objective" title="Direct link to Objective" translate="no">​</a></h3>
+<p>Determine how precise your fairness metric estimates are.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-compute-point-estimates">1.1 Compute Point Estimates<a href="#11-compute-point-estimates" class="hash-link" aria-label="Direct link to 1.1 Compute Point Estimates" title="Direct link to 1.1 Compute Point Estimates" translate="no">​</a></h3>
+<p>Calculate your fairness metric(s):</p>
+<ul>
+<li class="">Demographic Parity Difference</li>
+<li class="">Equal Opportunity Difference</li>
+<li class="">Error Rate Gaps</li>
+<li class="">Intersectional disparities</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-estimate-confidence-intervals">1.2 Estimate Confidence Intervals<a href="#12-estimate-confidence-intervals" class="hash-link" aria-label="Direct link to 1.2 Estimate Confidence Intervals" title="Direct link to 1.2 Estimate Confidence Intervals" translate="no">​</a></h3>
+<p>Use appropriate methods:</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="preferred-method-bootstrapping">Preferred Method: Bootstrapping<a href="#preferred-method-bootstrapping" class="hash-link" aria-label="Direct link to Preferred Method: Bootstrapping" title="Direct link to Preferred Method: Bootstrapping" translate="no">​</a></h4>
+<ol>
+<li class="">Resample dataset with replacement (e.g., 5,000–10,000 iterations).</li>
+<li class="">Recalculate fairness metric for each resample.</li>
+<li class="">Construct 95% confidence interval from bootstrap distribution.</li>
+</ol>
+<p>This works well for:</p>
+<ul>
+<li class="">Complex metrics</li>
+<li class="">Intersectional groups</li>
+<li class="">Non-normal distributions</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="alternative-analytical-standard-errors">Alternative: Analytical Standard Errors<a href="#alternative-analytical-standard-errors" class="hash-link" aria-label="Direct link to Alternative: Analytical Standard Errors" title="Direct link to Alternative: Analytical Standard Errors" translate="no">​</a></h4>
+<p>For simple proportion differences:</p>
+<ul>
+<li class="">
+<p>Compute standard error of difference in proportions.</p>
+</li>
+<li class="">
+<p>Construct CI:</p>
+<p>Estimate ± 1.96 × SE (for 95% CI)</p>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="13-interpret-confidence-intervals">1.3 Interpret Confidence Intervals<a href="#13-interpret-confidence-intervals" class="hash-link" aria-label="Direct link to 1.3 Interpret Confidence Intervals" title="Direct link to 1.3 Interpret Confidence Intervals" translate="no">​</a></h3>
+<ul>
+<li class="">If CI includes <strong>0</strong>, disparity may not be statistically distinguishable.</li>
+<li class="">If CI excludes <strong>0</strong>, disparity is statistically significant at chosen level.</li>
+<li class="">Wide intervals indicate high uncertainty (often small sample issue).</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="analogy">Analogy<a href="#analogy" class="hash-link" aria-label="Direct link to Analogy" title="Direct link to Analogy" translate="no">​</a></h3>
+<p>Confidence intervals are like election poll margins of error.</p>
+<p>A “5% disparity ± 7%” is not reliable evidence of a real gap.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="notes-uncertainty-setup">Notes (uncertainty setup)<a href="#notes-uncertainty-setup" class="hash-link" aria-label="Direct link to Notes (uncertainty setup)" title="Direct link to Notes (uncertainty setup)" translate="no">​</a></h3>
+<ul>
+<li class="">Log dataset snapshot, protected attributes assessed, and metric definitions.</li>
+<li class="">Record bootstrap iterations or analytical formulas used for intervals.</li>
+<li class="">Capture minimum subgroup sizes and any smoothing or priors applied.</li>
+<li class="">Link to the code/notebook that generated the intervals for reproducibility.</li>
+</ul>
+<div class="note-block"><label class="note-label" for="notes-step-1">Notes</label><textarea id="notes-step-1" rows="3" class="note-area" aria-label="Notes: quantify uncertainty"></textarea></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-2-conduct-statistical-significance-testing"><strong>Step 2: Conduct Statistical Significance Testing</strong><a href="#step-2-conduct-statistical-significance-testing" class="hash-link" aria-label="Direct link to step-2-conduct-statistical-significance-testing" title="Direct link to step-2-conduct-statistical-significance-testing" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="objective-1">Objective<a href="#objective-1" class="hash-link" aria-label="Direct link to Objective" title="Direct link to Objective" translate="no">​</a></h3>
+<p>Determine whether observed disparities are likely due to chance.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-define-hypotheses">2.1 Define Hypotheses<a href="#21-define-hypotheses" class="hash-link" aria-label="Direct link to 2.1 Define Hypotheses" title="Direct link to 2.1 Define Hypotheses" translate="no">​</a></h3>
+<p>For each fairness metric:</p>
+<ul>
+<li class=""><strong>Null Hypothesis (H₀):</strong> No disparity (difference = 0)</li>
+<li class=""><strong>Alternative Hypothesis (H₁):</strong> Disparity exists (difference ≠ 0)</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="22-choose-appropriate-test">2.2 Choose Appropriate Test<a href="#22-choose-appropriate-test" class="hash-link" aria-label="Direct link to 2.2 Choose Appropriate Test" title="Direct link to 2.2 Choose Appropriate Test" translate="no">​</a></h3>
+<table><thead><tr><th>Metric Type</th><th>Recommended Test</th></tr></thead><tbody><tr><td>Difference in proportions</td><td>z-test or chi-square</td></tr><tr><td>Small sample proportions</td><td>Fisher’s Exact Test</td></tr><tr><td>Complex metrics</td><td>Bootstrap hypothesis testing</td></tr><tr><td>Intersectional subgroups</td><td>Bayesian or hierarchical models</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="23-compute-p-values">2.3 Compute p-values<a href="#23-compute-p-values" class="hash-link" aria-label="Direct link to 2.3 Compute p-values" title="Direct link to 2.3 Compute p-values" translate="no">​</a></h3>
+<ul>
+<li class="">p &lt; 0.05 → statistically significant (standard threshold)</li>
+<li class="">p &lt; 0.01 → strong evidence</li>
+<li class="">p ≥ 0.05 → insufficient evidence</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="24-correct-for-multiple-testing">2.4 Correct for Multiple Testing<a href="#24-correct-for-multiple-testing" class="hash-link" aria-label="Direct link to 2.4 Correct for Multiple Testing" title="Direct link to 2.4 Correct for Multiple Testing" translate="no">​</a></h3>
+<p>If evaluating:</p>
+<ul>
+<li class="">Multiple fairness metrics</li>
+<li class="">Multiple protected attributes</li>
+<li class="">Multiple intersections</li>
+</ul>
+<p>Apply:</p>
+<ul>
+<li class=""><strong>Benjamini–Hochberg correction</strong> (preferred)</li>
+<li class="">Bonferroni correction (more conservative)</li>
+</ul>
+<p>This prevents inflated false discovery rates.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="analogy-1">Analogy<a href="#analogy-1" class="hash-link" aria-label="Direct link to Analogy" title="Direct link to Analogy" translate="no">​</a></h3>
+<p>Significance testing is like a financial materiality threshold — only discrepancies large enough relative to uncertainty require action.</p>
+<div class="note-block"><label class="note-label" for="notes-step-2">Notes</label><textarea id="notes-step-2" rows="3" class="note-area" aria-label="Notes: significance testing"></textarea></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-3-address-small-sample-challenges"><strong>Step 3: Address Small Sample Challenges</strong><a href="#step-3-address-small-sample-challenges" class="hash-link" aria-label="Direct link to step-3-address-small-sample-challenges" title="Direct link to step-3-address-small-sample-challenges" translate="no">​</a></h2>
+<p>Minority and intersectional groups often have limited representation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-identify-high-uncertainty-groups">3.1 Identify High-Uncertainty Groups<a href="#31-identify-high-uncertainty-groups" class="hash-link" aria-label="Direct link to 3.1 Identify High-Uncertainty Groups" title="Direct link to 3.1 Identify High-Uncertainty Groups" translate="no">​</a></h3>
+<p>Flag groups where:</p>
+<ul>
+<li class="">Sample size &lt; 100</li>
+<li class="">Confidence intervals are excessively wide</li>
+<li class="">Metrics fluctuate strongly across splits</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-use-small-sample-techniques">3.2 Use Small-Sample Techniques<a href="#32-use-small-sample-techniques" class="hash-link" aria-label="Direct link to 3.2 Use Small-Sample Techniques" title="Direct link to 3.2 Use Small-Sample Techniques" translate="no">​</a></h3>
+<p><strong>Recommended Methods:</strong></p>
+<ul>
+<li class="">Bayesian estimation with weakly informative priors</li>
+<li class="">Hierarchical modeling (borrow strength across groups)</li>
+<li class="">Exact statistical tests</li>
+<li class="">Bootstrapping instead of asymptotic formulas</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="33-document-limitations">3.3 Document Limitations<a href="#33-document-limitations" class="hash-link" aria-label="Direct link to 3.3 Document Limitations" title="Direct link to 3.3 Document Limitations" translate="no">​</a></h3>
+<p>If statistical power is insufficient:</p>
+<ul>
+<li class="">Explicitly state uncertainty</li>
+<li class="">Avoid definitive claims</li>
+<li class="">Consider aggregating similar subgroups when appropriate</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="analogy-2">Analogy<a href="#analogy-2" class="hash-link" aria-label="Direct link to Analogy" title="Direct link to Analogy" translate="no">​</a></h3>
+<p>Small samples are like quality testing limited-edition products—you need specialized methods because standard testing won’t be reliable.</p>
+<div class="note-block"><label class="note-label" for="notes-step-3">Notes</label><textarea id="notes-step-3" rows="3" class="note-area" aria-label="Notes: small sample challenges"></textarea></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-4-evaluate-robustness"><strong>Step 4: Evaluate Robustness</strong><a href="#step-4-evaluate-robustness" class="hash-link" aria-label="Direct link to step-4-evaluate-robustness" title="Direct link to step-4-evaluate-robustness" translate="no">​</a></h2>
+<p>Statistical significance alone is insufficient. Fairness findings must be stable.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-cross-validation">4.1 Cross-Validation<a href="#41-cross-validation" class="hash-link" aria-label="Direct link to 4.1 Cross-Validation" title="Direct link to 4.1 Cross-Validation" translate="no">​</a></h3>
+<ol>
+<li class="">Split data into k folds (e.g., 5-fold).</li>
+<li class="">Compute fairness metrics in each fold.</li>
+<li class="">Measure variability across splits.</li>
+</ol>
+<p>Large variability = instability.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="42-temporal-stability-testing">4.2 Temporal Stability Testing<a href="#42-temporal-stability-testing" class="hash-link" aria-label="Direct link to 4.2 Temporal Stability Testing" title="Direct link to 4.2 Temporal Stability Testing" translate="no">​</a></h3>
+<p>If longitudinal data exists:</p>
+<ul>
+<li class="">Compare fairness metrics across time periods.</li>
+<li class="">Identify drift or emerging disparities.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="43-sensitivity-analysis">4.3 Sensitivity Analysis<a href="#43-sensitivity-analysis" class="hash-link" aria-label="Direct link to 4.3 Sensitivity Analysis" title="Direct link to 4.3 Sensitivity Analysis" translate="no">​</a></h3>
+<p>Test:</p>
+<ul>
+<li class="">Different thresholds</li>
+<li class="">Slight feature perturbations</li>
+<li class="">Distribution shifts</li>
+</ul>
+<p>If fairness conclusions change drastically, results are not robust.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="44-stress-testing">4.4 Stress Testing<a href="#44-stress-testing" class="hash-link" aria-label="Direct link to 4.4 Stress Testing" title="Direct link to 4.4 Stress Testing" translate="no">​</a></h3>
+<p>Simulate:</p>
+<ul>
+<li class="">Increased imbalance</li>
+<li class="">Reduced minority sample size</li>
+<li class="">Shifts in base rates</li>
+</ul>
+<p>Observe whether fairness holds.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="analogy-3">Analogy<a href="#analogy-3" class="hash-link" aria-label="Direct link to Analogy" title="Direct link to Analogy" translate="no">​</a></h3>
+<p>Robustness testing is like shaking a bridge to ensure it remains stable under stress, not just standing still.</p>
+<div class="note-block"><label class="note-label" for="notes-step-4">Notes</label><textarea id="notes-step-4" rows="3" class="note-area" aria-label="Notes: robustness"></textarea></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-5-integrate-statistical-validation-into-decision-making"><strong>Step 5: Integrate Statistical Validation into Decision-Making</strong><a href="#step-5-integrate-statistical-validation-into-decision-making" class="hash-link" aria-label="Direct link to step-5-integrate-statistical-validation-into-decision-making" title="Direct link to step-5-integrate-statistical-validation-into-decision-making" translate="no">​</a></h2>
+<p>Statistical validation should inform action levels.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="implement-tiered-response-framework">Implement Tiered Response Framework<a href="#implement-tiered-response-framework" class="hash-link" aria-label="Direct link to Implement Tiered Response Framework" title="Direct link to Implement Tiered Response Framework" translate="no">​</a></h3>
+<table><thead><tr><th>Statistical Finding</th><th>Recommended Action</th></tr></thead><tbody><tr><td>Significant + Large Effect</td><td>Immediate intervention</td></tr><tr><td>Significant + Small Effect</td><td>Monitor + investigate</td></tr><tr><td>Not Significant + Large CI</td><td>Collect more data</td></tr><tr><td>Not Significant + Narrow CI</td><td>No action required</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="consider-effect-size">Consider Effect Size<a href="#consider-effect-size" class="hash-link" aria-label="Direct link to Consider Effect Size" title="Direct link to Consider Effect Size" translate="no">​</a></h3>
+<p>Statistical significance ≠ practical importance.</p>
+<p>Always report:</p>
+<ul>
+<li class="">Absolute disparity</li>
+<li class="">Relative disparity</li>
+<li class="">Standardized effect size</li>
+</ul>
+<div class="note-block"><label class="note-label" for="notes-step-5">Notes</label><textarea id="notes-step-5" rows="3" class="note-area" aria-label="Notes: decision-making integration"></textarea></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="step-6-intersectional-considerations"><strong>Step 6: Intersectional Considerations</strong><a href="#step-6-intersectional-considerations" class="hash-link" aria-label="Direct link to step-6-intersectional-considerations" title="Direct link to step-6-intersectional-considerations" translate="no">​</a></h2>
+<p>Intersectional groups create exponential subgroup growth.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="special-recommendations">Special Recommendations:<a href="#special-recommendations" class="hash-link" aria-label="Direct link to Special Recommendations:" title="Direct link to Special Recommendations:" translate="no">​</a></h3>
+<ul>
+<li class="">Use hierarchical Bayesian models</li>
+<li class="">Apply multiple testing correction</li>
+<li class="">Visualize both disparity magnitude and uncertainty</li>
+<li class="">Prioritize worst-case subgroup analysis</li>
+</ul>
+<p>Intersectional fairness must balance:</p>
+<ul>
+<li class="">Detection power</li>
+<li class="">False discovery control</li>
+<li class="">Statistical stability</li>
+</ul>
+<div class="note-block"><label class="note-label" for="notes-step-6">Notes</label><textarea id="notes-step-6" rows="3" class="note-area" aria-label="Notes: intersectional considerations"></textarea></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="implementation-checklist"><strong>Implementation Checklist</strong><a href="#implementation-checklist" class="hash-link" aria-label="Direct link to implementation-checklist" title="Direct link to implementation-checklist" translate="no">​</a></h2>
+<p>Before finalizing fairness conclusions, confirm:</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Confidence intervals computed for all metrics</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Hypothesis tests conducted</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Multiple testing correction applied</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Small sample groups flagged</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Robustness across splits verified</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Effect sizes reported</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Uncertainty clearly communicated</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="common-pitfalls-to-avoid"><strong>Common Pitfalls to Avoid</strong><a href="#common-pitfalls-to-avoid" class="hash-link" aria-label="Direct link to common-pitfalls-to-avoid" title="Direct link to common-pitfalls-to-avoid" translate="no">​</a></h2>
+<ol>
+<li class="">Acting on point estimates alone</li>
+<li class="">Ignoring intersectional sample sizes</li>
+<li class="">Failing to correct for multiple comparisons</li>
+<li class="">Treating p-values as binary decisions</li>
+<li class="">Ignoring instability across data splits</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="final-principle"><strong>Final Principle</strong><a href="#final-principle" class="hash-link" aria-label="Direct link to final-principle" title="Direct link to final-principle" translate="no">​</a></h2>
+<p>Fairness assessment without statistical validation is incomplete.</p>
+<p>Statistical rigor ensures that:</p>
+<ul>
+<li class="">Interventions are justified.</li>
+<li class="">Resources are allocated responsibly.</li>
+<li class="">Genuine disparities are not dismissed.</li>
+<li class="">Minority groups are not overlooked due to low power.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="visualization-and-reporting"><strong>Visualization and Reporting</strong><a href="#visualization-and-reporting" class="hash-link" aria-label="Direct link to visualization-and-reporting" title="Direct link to visualization-and-reporting" translate="no">​</a></h2>
+<p>Content moved to <a class="" href="/fairness-audit/docs/reporting">Reporting and Visualization</a>.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/Herkata/fairness-audit/tree/main/docs/09-statistical-validation.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/fairness-audit/docs/comprehensive-metrics"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Comprehensive Metrics Tool</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/fairness-audit/docs/reporting"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Reporting and Visualization</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#why-statistical-validation-matters" class="table-of-contents__link toc-highlight"><strong>Why Statistical Validation Matters</strong></a></li><li><a href="#step-1-quantify-uncertainty-in-fairness-metrics" class="table-of-contents__link toc-highlight"><strong>Step 1: Quantify Uncertainty in Fairness Metrics</strong></a><ul><li><a href="#objective" class="table-of-contents__link toc-highlight">Objective</a></li><li><a href="#11-compute-point-estimates" class="table-of-contents__link toc-highlight">1.1 Compute Point Estimates</a></li><li><a href="#12-estimate-confidence-intervals" class="table-of-contents__link toc-highlight">1.2 Estimate Confidence Intervals</a></li><li><a href="#13-interpret-confidence-intervals" class="table-of-contents__link toc-highlight">1.3 Interpret Confidence Intervals</a></li><li><a href="#analogy" class="table-of-contents__link toc-highlight">Analogy</a></li><li><a href="#notes-uncertainty-setup" class="table-of-contents__link toc-highlight">Notes (uncertainty setup)</a></li></ul></li><li><a href="#step-2-conduct-statistical-significance-testing" class="table-of-contents__link toc-highlight"><strong>Step 2: Conduct Statistical Significance Testing</strong></a><ul><li><a href="#objective-1" class="table-of-contents__link toc-highlight">Objective</a></li><li><a href="#21-define-hypotheses" class="table-of-contents__link toc-highlight">2.1 Define Hypotheses</a></li><li><a href="#22-choose-appropriate-test" class="table-of-contents__link toc-highlight">2.2 Choose Appropriate Test</a></li><li><a href="#23-compute-p-values" class="table-of-contents__link toc-highlight">2.3 Compute p-values</a></li><li><a href="#24-correct-for-multiple-testing" class="table-of-contents__link toc-highlight">2.4 Correct for Multiple Testing</a></li><li><a href="#analogy-1" class="table-of-contents__link toc-highlight">Analogy</a></li></ul></li><li><a href="#step-3-address-small-sample-challenges" class="table-of-contents__link toc-highlight"><strong>Step 3: Address Small Sample Challenges</strong></a><ul><li><a href="#31-identify-high-uncertainty-groups" class="table-of-contents__link toc-highlight">3.1 Identify High-Uncertainty Groups</a></li><li><a href="#32-use-small-sample-techniques" class="table-of-contents__link toc-highlight">3.2 Use Small-Sample Techniques</a></li><li><a href="#33-document-limitations" class="table-of-contents__link toc-highlight">3.3 Document Limitations</a></li><li><a href="#analogy-2" class="table-of-contents__link toc-highlight">Analogy</a></li></ul></li><li><a href="#step-4-evaluate-robustness" class="table-of-contents__link toc-highlight"><strong>Step 4: Evaluate Robustness</strong></a><ul><li><a href="#41-cross-validation" class="table-of-contents__link toc-highlight">4.1 Cross-Validation</a></li><li><a href="#42-temporal-stability-testing" class="table-of-contents__link toc-highlight">4.2 Temporal Stability Testing</a></li><li><a href="#43-sensitivity-analysis" class="table-of-contents__link toc-highlight">4.3 Sensitivity Analysis</a></li><li><a href="#44-stress-testing" class="table-of-contents__link toc-highlight">4.4 Stress Testing</a></li><li><a href="#analogy-3" class="table-of-contents__link toc-highlight">Analogy</a></li></ul></li><li><a href="#step-5-integrate-statistical-validation-into-decision-making" class="table-of-contents__link toc-highlight"><strong>Step 5: Integrate Statistical Validation into Decision-Making</strong></a><ul><li><a href="#implement-tiered-response-framework" class="table-of-contents__link toc-highlight">Implement Tiered Response Framework</a></li><li><a href="#consider-effect-size" class="table-of-contents__link toc-highlight">Consider Effect Size</a></li></ul></li><li><a href="#step-6-intersectional-considerations" class="table-of-contents__link toc-highlight"><strong>Step 6: Intersectional Considerations</strong></a><ul><li><a href="#special-recommendations" class="table-of-contents__link toc-highlight">Special Recommendations:</a></li></ul></li><li><a href="#implementation-checklist" class="table-of-contents__link toc-highlight"><strong>Implementation Checklist</strong></a></li><li><a href="#common-pitfalls-to-avoid" class="table-of-contents__link toc-highlight"><strong>Common Pitfalls to Avoid</strong></a></li><li><a href="#final-principle" class="table-of-contents__link toc-highlight"><strong>Final Principle</strong></a></li><li><a href="#visualization-and-reporting" class="table-of-contents__link toc-highlight"><strong>Visualization and Reporting</strong></a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/fairness-audit/docs/implementation-guide">Implementation Guide</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Herkata/fairness-audit" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fairness Audit Playbook. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

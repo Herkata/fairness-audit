@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkfairness_audit=globalThis.webpackChunkfairness_audit||[]).push([[1903],{1912(s){s.exports=JSON.parse('{"blogBasePath":"/fairness-audit/blog","blogTitle":"Blog","authorsListPath":"/fairness-audit/blog/authors"}')}}]);

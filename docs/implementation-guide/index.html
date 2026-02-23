@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-implementation-guide" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Implementation Guide | Fairness Audit Playbook</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://herkata.github.io/fairness-audit/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://herkata.github.io/fairness-audit/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://herkata.github.io/fairness-audit/docs/implementation-guide"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Implementation Guide | Fairness Audit Playbook"><meta data-rh="true" name="description" content="window.print()}&gt;"><meta data-rh="true" property="og:description" content="window.print()}&gt;"><link data-rh="true" rel="icon" href="/fairness-audit/img/katkatu-merleg.svg"><link data-rh="true" rel="canonical" href="https://herkata.github.io/fairness-audit/docs/implementation-guide"><link data-rh="true" rel="alternate" href="https://herkata.github.io/fairness-audit/docs/implementation-guide" hreflang="en"><link data-rh="true" rel="alternate" href="https://herkata.github.io/fairness-audit/docs/implementation-guide" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Implementation Guide","item":"https://herkata.github.io/fairness-audit/docs/implementation-guide"}]}</script><link rel="alternate" type="application/rss+xml" href="/fairness-audit/blog/rss.xml" title="Fairness Audit Playbook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/fairness-audit/blog/atom.xml" title="Fairness Audit Playbook Atom Feed"><link rel="stylesheet" href="/fairness-audit/assets/css/styles.69bbdfb0.css">
+<script src="/fairness-audit/assets/js/runtime~main.6d003bb2.js" defer="defer"></script>
+<script src="/fairness-audit/assets/js/main.0fb0aa49.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/fairness-audit/img/katkatu-merleg.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/fairness-audit/"><div class="navbar__logo"><img src="/fairness-audit/img/katkatu-merleg.svg" alt="Kétkarú mérleg" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/fairness-audit/img/katkatu-merleg.svg" alt="Kétkarú mérleg" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fairness Audit Playbook</b></a><a class="navbar__item navbar__link" href="/fairness-audit/docs/fairness-definition-literature">Literature</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/fairness-audit/docs/implementation-guide">Tools</a><a class="navbar__item navbar__link" href="/fairness-audit/docs/sources">Sources and Plans</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Herkata/fairness-audit" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/fairness-audit/docs/implementation-guide"><span title="Implementation Guide" class="linkLabel_WmDU">Implementation Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/historical-context-assessment"><span title="Historical Context Assessment Tool" class="linkLabel_WmDU">Historical Context Assessment Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/fairness-definition-selection"><span title="Fairness Definition Selection Tool" class="linkLabel_WmDU">Fairness Definition Selection Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/bias-source-identification"><span title="Bias Source Identification Tool" class="linkLabel_WmDU">Bias Source Identification Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/comprehensive-metrics"><span title="Comprehensive Metrics Tool" class="linkLabel_WmDU">Comprehensive Metrics Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/statistical-validation"><span title="Statistical Validation" class="linkLabel_WmDU">Statistical Validation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/reporting"><span title="Reporting and Visualization" class="linkLabel_WmDU">Reporting and Visualization</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/case-studies"><span title="Case Study" class="linkLabel_WmDU">Case Study</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/fairness-audit/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Implementation Guide</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Fairness Audit Playbook – Implementation Guide</h1></header>
+<div class="print-wrap"><button type="button" class="print-btn"><span aria-hidden="true" role="img" class="print-icon">💾</span><span>Save filled page as PDF</span></button><span class="print-tip">Use your browser&#x27;s print dialog and choose &quot;Save as PDF&quot; to keep filled inputs.</span></div>
+<p>This playbook provides a structured, lifecycle-aligned framework for auditing and governing fairness in AI systems.</p>
+<p>It integrates four core components:</p>
+<ol>
+<li class=""><strong>Historical Context Assessment</strong></li>
+<li class=""><strong>Fairness Definition Selection</strong></li>
+<li class=""><strong>Bias Source Identification &amp; Prioritization</strong></li>
+<li class=""><strong>Comprehensive Metrics &amp; Monitoring</strong></li>
+</ol>
+<p>Each component feeds directly into the next, forming a traceable and defensible workflow.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="general-guidelines"><strong>General Guidelines</strong><a href="#general-guidelines" class="hash-link" aria-label="Direct link to general-guidelines" title="Direct link to general-guidelines" translate="no">​</a></h2>
+<blockquote>
+<p>📢 <strong>Awareness</strong> — Identify ethical considerations early and revisit them throughout the process.</p>
+<p>📝 <strong>Documentation</strong> — Record decisions and justify them to ensure transparency and accountability.</p>
+<p>🚀 <strong>Action</strong> — Use ethical reflection to inform concrete implementation choices.</p>
+<p>⚖️ <strong>Fairness vs. Performance</strong> — If performance gains require sacrificing relevant ethical practices, treat the gains as unattainable.</p>
+<p>💡 <strong>Values</strong> — Check solutions against organizational and personal values while working through the questionnaire.</p>
+<p>🔍 <strong>Transparency</strong> — Explain decisions in a way others can follow and audit.</p>
+<p>🌫️ <strong>No Perfect Solution</strong> — State why you chose for or against specific ethical practices.</p>
+<p>🚧 <strong>Limitations</strong> — When no quick fix exists, document and emphasize solution limitations.</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="h1-historical-context-assessment"><strong>H.1 Historical Context Assessment</strong><a href="#h1-historical-context-assessment" class="hash-link" aria-label="Direct link to h1-historical-context-assessment" title="Direct link to h1-historical-context-assessment" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="h11-governance-setup--initial-risk-structuring">H.1.1 Governance Setup &amp; Initial Risk Structuring<a href="#h11-governance-setup--initial-risk-structuring" class="hash-link" aria-label="Direct link to H.1.1 Governance Setup &amp; Initial Risk Structuring" title="Direct link to H.1.1 Governance Setup &amp; Initial Risk Structuring" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="h111-appoint-section-experts">H.1.1.1 Appoint Section Experts<a href="#h111-appoint-section-experts" class="hash-link" aria-label="Direct link to H.1.1.1 Appoint Section Experts" title="Direct link to H.1.1.1 Appoint Section Experts" translate="no">​</a></h4>
+<p>Assign clear ownership for each section of the questionnaire. Document responsible individuals and their contact details to ensure accountability and traceability.</p>
+<p><strong>H.1.1.1.a Domain &amp; Application Concept (Recommended: Product Manager)</strong></p>
+<div class="question-inline-row"><div class="question-block question-inline"><label class="note-label" for="domain-responsible">Responsible Name</label><input id="domain-responsible" type="text" class="full-width-input" aria-label="Domain responsible name"></div><div class="question-block question-inline"><label class="note-label" for="domain-title">Title / Role</label><input id="domain-title" type="text" class="full-width-input" aria-label="Domain title or role"></div><div class="question-block question-inline"><label class="note-label" for="domain-department">Department</label><input id="domain-department" type="text" class="full-width-input" aria-label="Domain department"></div></div>
+<div class="question-inline-row"><div class="question-block question-inline"><label class="note-label" for="domain-email">Email</label><input id="domain-email" type="email" class="full-width-input" aria-label="Domain email"></div><div class="question-block question-inline"><label class="note-label" for="domain-contact">Phone / Slack / Contact Method</label><input id="domain-contact" type="text" class="full-width-input" aria-label="Domain contact method"></div></div>
+<hr>
+<p><strong>H.1.1.1.b Data &amp; Features (Recommended: Database Governance Specialist)</strong></p>
+<div class="question-inline-row"><div class="question-block question-inline"><label class="note-label" for="data-responsible">Responsible Name</label><input id="data-responsible" type="text" class="full-width-input" aria-label="Data responsible name"></div><div class="question-block question-inline"><label class="note-label" for="data-title">Title / Role</label><input id="data-title" type="text" class="full-width-input" aria-label="Data title or role"></div><div class="question-block question-inline"><label class="note-label" for="data-department">Department</label><input id="data-department" type="text" class="full-width-input" aria-label="Data department"></div></div>
+<div class="question-inline-row"><div class="question-block question-inline"><label class="note-label" for="data-email">Email</label><input id="data-email" type="email" class="full-width-input" aria-label="Data email"></div><div class="question-block question-inline"><label class="note-label" for="data-contact">Phone / Slack / Contact Method</label><input id="data-contact" type="text" class="full-width-input" aria-label="Data contact method"></div></div>
+<hr>
+<p><strong>H.1.1.1.c Model Selection &amp; Evaluation (Recommended: Data Scientist / AI Engineer)</strong></p>
+<div class="question-inline-row"><div class="question-block question-inline"><label class="note-label" for="model-responsible">Responsible Name(s)</label><input id="model-responsible" type="text" class="full-width-input" aria-label="Model responsible names"></div><div class="question-block question-inline"><label class="note-label" for="model-title">Title / Role</label><input id="model-title" type="text" class="full-width-input" aria-label="Model title or role"></div><div class="question-block question-inline"><label class="note-label" for="model-department">Department</label><input id="model-department" type="text" class="full-width-input" aria-label="Model department"></div></div>
+<div class="question-inline-row"><div class="question-block question-inline"><label class="note-label" for="model-email">Email</label><input id="model-email" type="email" class="full-width-input" aria-label="Model email"></div><div class="question-block question-inline"><label class="note-label" for="model-contact">Phone / Slack / Contact Method</label><input id="model-contact" type="text" class="full-width-input" aria-label="Model contact method"></div></div>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="h12-execute-the-questionnaire">H.1.2 Execute the Questionnaire<a href="#h12-execute-the-questionnaire" class="hash-link" aria-label="Direct link to H.1.2 Execute the Questionnaire" title="Direct link to H.1.2 Execute the Questionnaire" translate="no">​</a></h3>
+<p>Work through the questionnaire systematically and document:</p>
+<ul>
+<li class="">All decisions made</li>
+<li class="">Evidence or sources referenced</li>
+<li class="">Open questions or unresolved risks</li>
+<li class="">Assumptions taken</li>
+<li class="">Required follow-ups</li>
+</ul>
+<p>Ensure documentation is version-controlled and reviewable.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="h13-develop-a-risk-classification-matrix">H.1.3 Develop a Risk Classification Matrix<a href="#h13-develop-a-risk-classification-matrix" class="hash-link" aria-label="Direct link to H.1.3 Develop a Risk Classification Matrix" title="Direct link to H.1.3 Develop a Risk Classification Matrix" translate="no">​</a></h3>
+<p>Create a structured matrix to prioritize vulnerabilities within the application.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="h131-historical-risk-collection">H.1.3.1 Historical Risk Collection<a href="#h131-historical-risk-collection" class="hash-link" aria-label="Direct link to H.1.3.1 Historical Risk Collection" title="Direct link to H.1.3.1 Historical Risk Collection" translate="no">​</a></h4>
+<ul>
+<li class="">Gather documented cases of historical injustice relevant to the domain.</li>
+<li class="">Identify previously disadvantaged or excluded groups.</li>
+<li class="">Note structural patterns that may influence data or outcomes.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="h132-risk-scoring">H.1.3.2 Risk Scoring<a href="#h132-risk-scoring" class="hash-link" aria-label="Direct link to H.1.3.2 Risk Scoring" title="Direct link to H.1.3.2 Risk Scoring" translate="no">​</a></h4>
+<p>Score each identified risk according to:</p>
+<ul>
+<li class=""><strong>Severity</strong> – Potential harm if unaddressed</li>
+<li class=""><strong>Likelihood of Occurrence</strong> – Probability of manifestation</li>
+<li class=""><strong>Relevance to Application</strong> – Degree of contextual fit</li>
+<li class=""><strong>Necessity of Intervention</strong> – Regulatory, ethical, or business urgency</li>
+</ul>
+<p>(Optional: define numeric scales for consistency.)</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="h133-prioritization-output">H.1.3.3 Prioritization Output<a href="#h133-prioritization-output" class="hash-link" aria-label="Direct link to H.1.3.3 Prioritization Output" title="Direct link to H.1.3.3 Prioritization Output" translate="no">​</a></h4>
+<p>Classify risks into:</p>
+<ul>
+<li class="">High Priority – Immediate mitigation required</li>
+<li class="">Medium Priority – Monitor and mitigate in next iteration</li>
+<li class="">Low Priority – Document and review periodically</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="h14-create-an-executive-summary">H.1.4 Create an Executive Summary<a href="#h14-create-an-executive-summary" class="hash-link" aria-label="Direct link to H.1.4 Create an Executive Summary" title="Direct link to H.1.4 Create an Executive Summary" translate="no">​</a></h3>
+<p>Summarize findings from the questionnaire and risk analysis.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="h141-summary-of-findings">H.1.4.1 Summary of Findings<a href="#h141-summary-of-findings" class="hash-link" aria-label="Direct link to H.1.4.1 Summary of Findings" title="Direct link to H.1.4.1 Summary of Findings" translate="no">​</a></h4>
+<ul>
+<li class="">Key structural risks identified</li>
+<li class="">Most affected user groups</li>
+<li class="">High-level fairness implications</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="h142-immediate-intervention-areas">H.1.4.2 Immediate Intervention Areas<a href="#h142-immediate-intervention-areas" class="hash-link" aria-label="Direct link to H.1.4.2 Immediate Intervention Areas" title="Direct link to H.1.4.2 Immediate Intervention Areas" translate="no">​</a></h4>
+<p>Highlight vulnerabilities requiring urgent mitigation or governance escalation.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="h143-implementation-guidance">H.1.4.3 Implementation Guidance<a href="#h143-implementation-guidance" class="hash-link" aria-label="Direct link to H.1.4.3 Implementation Guidance" title="Direct link to H.1.4.3 Implementation Guidance" translate="no">​</a></h4>
+<p>Provide actionable next steps, including:</p>
+<ul>
+<li class="">Required design changes</li>
+<li class="">Additional data collection</li>
+<li class="">Metric monitoring requirements</li>
+<li class="">Governance review checkpoints</li>
+</ul>
+<hr>
+<p>This section establishes accountability, documentation discipline, and a structured foundation for the fairness audit process.</p>
+<hr>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="d1-fairness-definition-selection"><strong>D.1 Fairness Definition Selection</strong><a href="#d1-fairness-definition-selection" class="hash-link" aria-label="Direct link to d1-fairness-definition-selection" title="Direct link to d1-fairness-definition-selection" translate="no">​</a></h2>
+<p>This section explains:</p>
+<ol>
+<li class=""><strong>Which outputs to extract from the Historical Context Assessment</strong></li>
+<li class=""><strong>How to use those outputs inside the Fairness Definition Selection Tool</strong></li>
+</ol>
+<p>This walkthrough assumes the Historical Context Assessment has already been completed.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d11-required-inputs-from-historical-context-assessment">D.1.1 Required Inputs from Historical Context Assessment<a href="#d11-required-inputs-from-historical-context-assessment" class="hash-link" aria-label="Direct link to D.1.1 Required Inputs from Historical Context Assessment" title="Direct link to D.1.1 Required Inputs from Historical Context Assessment" translate="no">​</a></h3>
+<p>Before entering the Definition Selection Decision Tree, extract and document:</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d111-documented-historical-outcome-bias">D.1.1.1 Documented Historical Outcome Bias<a href="#d111-documented-historical-outcome-bias" class="hash-link" aria-label="Direct link to D.1.1.1 Documented Historical Outcome Bias" title="Direct link to D.1.1.1 Documented Historical Outcome Bias" translate="no">​</a></h4>
+<ul>
+<li class="">Evidence of systematic exclusion</li>
+<li class="">Discriminatory access patterns</li>
+<li class="">Structural under-representation</li>
+<li class="">Biased historical decision outcomes</li>
+</ul>
+<p><strong>Output to carry forward:</strong></p>
+<ul>
+<li class=""><code>Historical Outcome Bias: Yes / No</code></li>
+<li class="">Short justification summary</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d112-identified-harm-types">D.1.1.2 Identified Harm Types<a href="#d112-identified-harm-types" class="hash-link" aria-label="Direct link to D.1.1.2 Identified Harm Types" title="Direct link to D.1.1.2 Identified Harm Types" translate="no">​</a></h4>
+<ul>
+<li class="">Who was harmed?</li>
+<li class="">What type of harm occurred? (denial of access, misclassification, reputational damage, financial loss, etc.)</li>
+<li class="">Which error type historically drove harm (False Negatives or False Positives)?</li>
+</ul>
+<p><strong>Output to carry forward:</strong></p>
+<ul>
+<li class=""><code>Primary Harm Type</code></li>
+<li class=""><code>Most Severe Error Type: FN / FP / Both</code></li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d113-protected-and-intersectional-groups">D.1.1.3 Protected and Intersectional Groups<a href="#d113-protected-and-intersectional-groups" class="hash-link" aria-label="Direct link to D.1.1.3 Protected and Intersectional Groups" title="Direct link to D.1.1.3 Protected and Intersectional Groups" translate="no">​</a></h4>
+<ul>
+<li class="">Individual protected attributes</li>
+<li class="">High-risk intersectional combinations</li>
+</ul>
+<p><strong>Output to carry forward:</strong></p>
+<ul>
+<li class="">List of protected groups</li>
+<li class="">List of intersectional groups requiring monitoring</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d114-risk-severity-level">D.1.1.4 Risk Severity Level<a href="#d114-risk-severity-level" class="hash-link" aria-label="Direct link to D.1.1.4 Risk Severity Level" title="Direct link to D.1.1.4 Risk Severity Level" translate="no">​</a></h4>
+<ul>
+<li class="">Overall structural risk classification (Low / Medium / High)</li>
+</ul>
+<p><strong>Output to carry forward:</strong></p>
+<ul>
+<li class=""><code>Risk Level</code></li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d12-steps-in-the-fairness-definition-selection-tool">D.1.2 Steps in the Fairness Definition Selection Tool<a href="#d12-steps-in-the-fairness-definition-selection-tool" class="hash-link" aria-label="Direct link to D.1.2 Steps in the Fairness Definition Selection Tool" title="Direct link to D.1.2 Steps in the Fairness Definition Selection Tool" translate="no">​</a></h3>
+<p>Using the extracted inputs, proceed through the tool in order.</p>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d121-historical-bias-check">D.1.2.1 Historical Bias Check<a href="#d121-historical-bias-check" class="hash-link" aria-label="Direct link to D.1.2.1 Historical Bias Check" title="Direct link to D.1.2.1 Historical Bias Check" translate="no">​</a></h4>
+<p>Input: <code>Historical Outcome Bias</code></p>
+<ul>
+<li class="">If <strong>Yes</strong> → Add <strong>Demographic Parity</strong> as a primary fairness constraint.</li>
+<li class="">If <strong>No</strong> → Document reasoning and continue.</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d122-error-harm-alignment">D.1.2.2 Error Harm Alignment<a href="#d122-error-harm-alignment" class="hash-link" aria-label="Direct link to D.1.2.2 Error Harm Alignment" title="Direct link to D.1.2.2 Error Harm Alignment" translate="no">​</a></h4>
+<p>Input: <code>Most Severe Error Type</code></p>
+<ul>
+<li class="">If <strong>False Negatives dominate harm</strong> → Select <strong>Equal Opportunity</strong></li>
+<li class="">If <strong>False Positives dominate harm</strong> → Select <strong>Predictive Parity</strong></li>
+<li class="">If <strong>Both cause severe harm</strong> → Select <strong>Equalized Odds</strong></li>
+</ul>
+<p>This anchors fairness selection to harm severity identified earlier.</p>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d123-score-exposure-check">D.1.2.3 Score Exposure Check<a href="#d123-score-exposure-check" class="hash-link" aria-label="Direct link to D.1.2.3 Score Exposure Check" title="Direct link to D.1.2.3 Score Exposure Check" translate="no">​</a></h4>
+<p>Determine whether the system outputs:</p>
+<ul>
+<li class="">Risk scores</li>
+<li class="">Probabilities</li>
+<li class="">Rankings</li>
+</ul>
+<p>If <strong>scores are exposed or interpreted</strong>, add:</p>
+<ul>
+<li class=""><strong>Sufficiency / Group Calibration</strong> (secondary metric)</li>
+</ul>
+<p>If not, skip.</p>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d124-individual-level-fairness-requirement">D.1.2.4 Individual-Level Fairness Requirement<a href="#d124-individual-level-fairness-requirement" class="hash-link" aria-label="Direct link to D.1.2.4 Individual-Level Fairness Requirement" title="Direct link to D.1.2.4 Individual-Level Fairness Requirement" translate="no">​</a></h4>
+<p>Based on system context and risk level:</p>
+<p>If decisions are:</p>
+<ul>
+<li class="">High-stakes</li>
+<li class="">Individually consequential</li>
+<li class="">Likely to raise perceived unfairness</li>
+</ul>
+<p>Add:</p>
+<ul>
+<li class=""><strong>Fairness Through Awareness</strong></li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d125-intersectional-enforcement">D.1.2.5 Intersectional Enforcement<a href="#d125-intersectional-enforcement" class="hash-link" aria-label="Direct link to D.1.2.5 Intersectional Enforcement" title="Direct link to D.1.2.5 Intersectional Enforcement" translate="no">​</a></h4>
+<p>Using the protected group list:</p>
+<ul>
+<li class="">Ensure all selected fairness metrics will be computed for:<!-- -->
+<ul>
+<li class="">Each protected group</li>
+<li class="">Each high-risk intersectional subgroup</li>
+</ul>
+</li>
+</ul>
+<p>Intersectional monitoring is mandatory when risk level is Medium or High.</p>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="d126-conflict-review--prioritization">D.1.2.6 Conflict Review &amp; Prioritization<a href="#d126-conflict-review--prioritization" class="hash-link" aria-label="Direct link to D.1.2.6 Conflict Review &amp; Prioritization" title="Direct link to D.1.2.6 Conflict Review &amp; Prioritization" translate="no">​</a></h4>
+<p>Before finalizing:</p>
+<ul>
+<li class="">Check for known incompatibilities between selected definitions.</li>
+<li class="">Evaluate expected fairness–performance trade-offs.</li>
+<li class="">Prioritize metrics based on:<!-- -->
+<ul>
+<li class="">Structural risk level</li>
+<li class="">Harm severity</li>
+<li class="">Regulatory exposure</li>
+</ul>
+</li>
+</ul>
+<p>Document:</p>
+<ul>
+<li class="">Primary fairness definitions</li>
+<li class="">Secondary monitoring metrics</li>
+<li class="">Explicit trade-offs accepted</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="d13-final-output-of-this-stage">D.1.3 Final Output of This Stage<a href="#d13-final-output-of-this-stage" class="hash-link" aria-label="Direct link to D.1.3 Final Output of This Stage" title="Direct link to D.1.3 Final Output of This Stage" translate="no">​</a></h3>
+<p>The Fairness Definition Selection Tool must produce:</p>
+<ul>
+<li class="">A finalized list of fairness definitions</li>
+<li class="">Primary vs. secondary classification</li>
+<li class="">Explicit linkage to historical findings</li>
+<li class="">Confirmation of intersectional evaluation</li>
+<li class="">Documentation of expected trade-offs</li>
+</ul>
+<p>These outputs feed directly into the Bias Source Identification phase.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="b1-bias-source-identification--prioritization"><strong>B.1 Bias Source Identification &amp; Prioritization</strong><a href="#b1-bias-source-identification--prioritization" class="hash-link" aria-label="Direct link to b1-bias-source-identification--prioritization" title="Direct link to b1-bias-source-identification--prioritization" translate="no">​</a></h2>
+<p>This section explains how to move systematically from identifying bias types to detecting and prioritizing them.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="b11-taxonomy-stage--identify-relevant-bias-types">B.1.1 Taxonomy Stage – Identify Relevant Bias Types<a href="#b11-taxonomy-stage--identify-relevant-bias-types" class="hash-link" aria-label="Direct link to B.1.1 Taxonomy Stage – Identify Relevant Bias Types" title="Direct link to B.1.1 Taxonomy Stage – Identify Relevant Bias Types" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b111-review-the-bias-taxonomy">B.1.1.1 Review the Bias Taxonomy<a href="#b111-review-the-bias-taxonomy" class="hash-link" aria-label="Direct link to B.1.1.1 Review the Bias Taxonomy" title="Direct link to B.1.1.1 Review the Bias Taxonomy" translate="no">​</a></h4>
+<p>Start by reviewing your full taxonomy (e.g., historical, representation, measurement, aggregation, learning, evaluation, deployment, interaction, feedback).</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b112-narrow-to-plausible-categories">B.1.1.2 Narrow to Plausible Categories<a href="#b112-narrow-to-plausible-categories" class="hash-link" aria-label="Direct link to B.1.1.2 Narrow to Plausible Categories" title="Direct link to B.1.1.2 Narrow to Plausible Categories" translate="no">​</a></h4>
+<p>Ask:</p>
+<ul>
+<li class="">Which bias categories are most plausible in this application?</li>
+<li class="">Which align with documented historical risks?</li>
+<li class="">Which threaten your selected fairness definitions?</li>
+</ul>
+<p>The objective is to reduce the universe of possible risks to those most relevant to your system.</p>
+<p><strong>Output:</strong><br>
+<!-- -->A shortlist of applicable bias categories.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="b12-detection-stage--conduct-targeted-analysis">B.1.2 Detection Stage – Conduct Targeted Analysis<a href="#b12-detection-stage--conduct-targeted-analysis" class="hash-link" aria-label="Direct link to B.1.2 Detection Stage – Conduct Targeted Analysis" title="Direct link to B.1.2 Detection Stage – Conduct Targeted Analysis" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b121-apply-bias-specific-detection-methods">B.1.2.1 Apply Bias-Specific Detection Methods<a href="#b121-apply-bias-specific-detection-methods" class="hash-link" aria-label="Direct link to B.1.2.1 Apply Bias-Specific Detection Methods" title="Direct link to B.1.2.1 Apply Bias-Specific Detection Methods" translate="no">​</a></h4>
+<p>For each shortlisted bias type:</p>
+<ul>
+<li class="">Apply appropriate qualitative and quantitative detection methods.</li>
+<li class="">Disaggregate findings by protected and intersectional groups.</li>
+<li class="">Compare results against historical findings and selected fairness metrics.</li>
+<li class="">Document evidence and assumptions clearly.</li>
+</ul>
+<p>Detection must be aligned with:</p>
+<ul>
+<li class="">Historical context</li>
+<li class="">Selected fairness definitions</li>
+<li class="">Application risk level</li>
+</ul>
+<p><strong>Output:</strong><br>
+<!-- -->A documented list of identified bias sources (including ruled-out risks with justification).</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="b13-evaluation-stage--assess-each-bias-source">B.1.3 Evaluation Stage – Assess Each Bias Source<a href="#b13-evaluation-stage--assess-each-bias-source" class="hash-link" aria-label="Direct link to B.1.3 Evaluation Stage – Assess Each Bias Source" title="Direct link to B.1.3 Evaluation Stage – Assess Each Bias Source" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b131-score-across-standardized-dimensions">B.1.3.1 Score Across Standardized Dimensions<a href="#b131-score-across-standardized-dimensions" class="hash-link" aria-label="Direct link to B.1.3.1 Score Across Standardized Dimensions" title="Direct link to B.1.3.1 Score Across Standardized Dimensions" translate="no">​</a></h4>
+<p>For each confirmed or suspected bias source, assign 1–5 scores for:</p>
+<ul>
+<li class="">Severity</li>
+<li class="">Scope</li>
+<li class="">Persistence</li>
+<li class="">Historical Alignment</li>
+<li class="">Intervention Feasibility</li>
+</ul>
+<p>This creates a structured evaluation baseline.</p>
+<p><strong>Output:</strong><br>
+<!-- -->A completed scoring table for all identified bias sources.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="b14-prioritization-stage--calculate-priority-scores">B.1.4 Prioritization Stage – Calculate Priority Scores<a href="#b14-prioritization-stage--calculate-priority-scores" class="hash-link" aria-label="Direct link to B.1.4 Prioritization Stage – Calculate Priority Scores" title="Direct link to B.1.4 Prioritization Stage – Calculate Priority Scores" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b141-apply-the-weighted-formula">B.1.4.1 Apply the Weighted Formula<a href="#b141-apply-the-weighted-formula" class="hash-link" aria-label="Direct link to B.1.4.1 Apply the Weighted Formula" title="Direct link to B.1.4.1 Apply the Weighted Formula" translate="no">​</a></h4>
+<p>Use the defined weighted scoring formula to generate a Priority Score for each bias source.</p>
+<p>This ensures prioritization is:</p>
+<ul>
+<li class="">Structured</li>
+<li class="">Transparent</li>
+<li class="">Comparable across bias types</li>
+</ul>
+<p><strong>Output:</strong><br>
+<!-- -->Ranked list of bias sources by Priority Score.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="b15-resource-allocation--categorize-and-act">B.1.5 Resource Allocation – Categorize and Act<a href="#b15-resource-allocation--categorize-and-act" class="hash-link" aria-label="Direct link to B.1.5 Resource Allocation – Categorize and Act" title="Direct link to B.1.5 Resource Allocation – Categorize and Act" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b151-assign-priority-levels">B.1.5.1 Assign Priority Levels<a href="#b151-assign-priority-levels" class="hash-link" aria-label="Direct link to B.1.5.1 Assign Priority Levels" title="Direct link to B.1.5.1 Assign Priority Levels" translate="no">​</a></h4>
+<p>Group bias sources into:</p>
+<ul>
+<li class=""><strong>High Priority</strong> → Immediate mitigation required</li>
+<li class=""><strong>Medium Priority</strong> → Planned mitigation and monitoring</li>
+<li class=""><strong>Low Priority</strong> → Ongoing monitoring</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="b152-align-mitigation-planning">B.1.5.2 Align Mitigation Planning<a href="#b152-align-mitigation-planning" class="hash-link" aria-label="Direct link to B.1.5.2 Align Mitigation Planning" title="Direct link to B.1.5.2 Align Mitigation Planning" translate="no">​</a></h4>
+<p>Allocate resources and define mitigation timelines according to priority level.</p>
+<p><strong>Output:</strong><br>
+<!-- -->Mitigation roadmap aligned with ranked risks.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="b16-final-outcome">B.1.6 Final Outcome<a href="#b16-final-outcome" class="hash-link" aria-label="Direct link to B.1.6 Final Outcome" title="Direct link to B.1.6 Final Outcome" translate="no">​</a></h3>
+<p>By following this workflow:</p>
+<ol>
+<li class="">Taxonomy defines <em>what could go wrong</em></li>
+<li class="">Detection reveals <em>what is happening</em></li>
+<li class="">Evaluation measures <em>how serious it is</em></li>
+<li class="">Prioritization determines <em>what must be addressed first</em></li>
+</ol>
+<p>This creates a traceable and defensible bias management process from identification to action.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="m1-comprehensive-metrics-evaluation"><strong>M.1 Comprehensive Metrics Evaluation</strong><a href="#m1-comprehensive-metrics-evaluation" class="hash-link" aria-label="Direct link to m1-comprehensive-metrics-evaluation" title="Direct link to m1-comprehensive-metrics-evaluation" translate="no">​</a></h2>
+<p>The Fairness Metrics Tool enables engineering and data science teams to systematically select, calculate, visualize, and interpret fairness metrics for AI systems. It links fairness definitions to quantitative evaluation, incorporates statistical validation, and supports reporting and governance decisions across both group-level and individual-level fairness concerns.</p>
+<p>This guide outlines how to apply the tool in a consistent, reproducible, and actionable manner.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="m11-define-the-scope">M.1.1 Define the Scope<a href="#m11-define-the-scope" class="hash-link" aria-label="Direct link to M.1.1 Define the Scope" title="Direct link to M.1.1 Define the Scope" translate="no">​</a></h3>
+<ul>
+<li class="">Identify the AI system, model, or process under evaluation.</li>
+<li class="">Specify protected attributes (e.g., race, gender, age) and relevant intersectional groups.</li>
+<li class="">Confirm fairness objectives from prior stages:<!-- -->
+<ul>
+<li class="">Historical Context Assessment</li>
+<li class="">Selected Fairness Definitions</li>
+<li class="">Identified Bias Sources</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="m12-select-metrics">M.1.2 Select Metrics<a href="#m12-select-metrics" class="hash-link" aria-label="Direct link to M.1.2 Select Metrics" title="Direct link to M.1.2 Select Metrics" translate="no">​</a></h3>
+<p>Map fairness definitions to appropriate quantitative metrics:</p>
+<ul>
+<li class=""><strong>Statistical Parity (Demographic Parity)</strong> – Equal representation of outcomes</li>
+<li class=""><strong>Equal Opportunity (True Positive Rate Parity)</strong> – Fair treatment of qualified individuals</li>
+<li class=""><strong>Equalized Odds</strong> – Balanced false positives and false negatives</li>
+<li class=""><strong>Predictive Parity (Positive Predictive Value Parity)</strong> – Consistent meaning of positive predictions</li>
+<li class=""><strong>Similarity-Based / Individual Fairness</strong> – Similar individuals treated similarly</li>
+<li class=""><strong>Intersectional &amp; Multi-Dimensional Metrics</strong> – Subgroup-level fairness evaluation</li>
+</ul>
+<p>Prioritize <strong>primary metrics</strong> for enforcement and use <strong>secondary metrics</strong> for monitoring complementary fairness dimensions.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="m13-prepare-the-dataset">M.1.3 Prepare the Dataset<a href="#m13-prepare-the-dataset" class="hash-link" aria-label="Direct link to M.1.3 Prepare the Dataset" title="Direct link to M.1.3 Prepare the Dataset" translate="no">​</a></h3>
+<ul>
+<li class="">Ensure protected attributes and outcomes are clearly labeled.</li>
+<li class="">Address missing demographic data using proxy analysis or sensitivity checks.</li>
+<li class="">For small subgroups, use Bayesian or hierarchical methods for stable estimates.</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="m14-calculating-metrics">M.1.4 Calculating Metrics<a href="#m14-calculating-metrics" class="hash-link" aria-label="Direct link to M.1.4 Calculating Metrics" title="Direct link to M.1.4 Calculating Metrics" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="m141-compute-point-estimates">M.1.4.1 Compute Point Estimates<a href="#m141-compute-point-estimates" class="hash-link" aria-label="Direct link to M.1.4.1 Compute Point Estimates" title="Direct link to M.1.4.1 Compute Point Estimates" translate="no">​</a></h4>
+<ul>
+<li class="">Apply selected metrics to obtain baseline disparity values.</li>
+<li class="">Use standard definitions or task-specific adjustments as needed.</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="m142-quantify-uncertainty">M.1.4.2 Quantify Uncertainty<a href="#m142-quantify-uncertainty" class="hash-link" aria-label="Direct link to M.1.4.2 Quantify Uncertainty" title="Direct link to M.1.4.2 Quantify Uncertainty" translate="no">​</a></h4>
+<ul>
+<li class="">Generate confidence intervals via bootstrapping, exact tests, or Bayesian methods.</li>
+<li class="">Report intervals alongside all point estimates.</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="m143-assess-statistical-significance">M.1.4.3 Assess Statistical Significance<a href="#m143-assess-statistical-significance" class="hash-link" aria-label="Direct link to M.1.4.3 Assess Statistical Significance" title="Direct link to M.1.4.3 Assess Statistical Significance" translate="no">​</a></h4>
+<ul>
+<li class="">Define null hypothesis (no disparity).</li>
+<li class="">Compute p-values and adjust for multiple testing (e.g., Benjamini–Hochberg).</li>
+<li class="">Apply escalation tiers:<!-- -->
+<ul>
+<li class=""><strong>0.99</strong> – Immediate action</li>
+<li class=""><strong>0.95</strong> – Investigation required</li>
+<li class=""><strong>0.90</strong> – Monitoring</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="m144-check-robustness">M.1.4.4 Check Robustness<a href="#m144-check-robustness" class="hash-link" aria-label="Direct link to M.1.4.4 Check Robustness" title="Direct link to M.1.4.4 Check Robustness" translate="no">​</a></h4>
+<ul>
+<li class="">Perform cross-validation across data splits or time periods.</li>
+<li class="">Conduct sensitivity analyses under alternative assumptions or simulated shifts.</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="m15-visualization-and-reporting">M.1.5 Visualization and Reporting<a href="#m15-visualization-and-reporting" class="hash-link" aria-label="Direct link to M.1.5 Visualization and Reporting" title="Direct link to M.1.5 Visualization and Reporting" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="m151-generate-visualizations">M.1.5.1 Generate Visualizations<a href="#m151-generate-visualizations" class="hash-link" aria-label="Direct link to M.1.5.1 Generate Visualizations" title="Direct link to M.1.5.1 Generate Visualizations" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Fairness Disparity Chart</strong> – Group disparities with confidence intervals</li>
+<li class=""><strong>Intersectional Heatmap</strong> – Subgroup-level disparities</li>
+<li class=""><strong>Pareto Diagrams</strong> – Trade-offs between fairness and technical metrics</li>
+<li class=""><strong>Trade-Off Scatter Plot</strong> – Performance vs. fairness comparison</li>
+<li class=""><strong>Threshold Alert Charts</strong> – Escalation-level monitoring</li>
+</ul>
+<hr>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="m152-reporting-structure">M.1.5.2 Reporting Structure<a href="#m152-reporting-structure" class="hash-link" aria-label="Direct link to M.1.5.2 Reporting Structure" title="Direct link to M.1.5.2 Reporting Structure" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Executive Summary</strong> – Key findings and high-risk disparities</li>
+<li class=""><strong>Metric Table</strong> – Estimates, confidence intervals, significance levels</li>
+<li class=""><strong>Visualization Section</strong> – Supporting charts</li>
+<li class=""><strong>Recommendations</strong> – Mitigation or monitoring actions</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="m16-interpretation-and-decision-making">M.1.6 Interpretation and Decision-Making<a href="#m16-interpretation-and-decision-making" class="hash-link" aria-label="Direct link to M.1.6 Interpretation and Decision-Making" title="Direct link to M.1.6 Interpretation and Decision-Making" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Primary Metrics</strong> – Focus on statistically significant disparities exceeding thresholds.</li>
+<li class=""><strong>Secondary Metrics</strong> – Monitor trends and intersectional behavior.</li>
+<li class=""><strong>Trade-Off Analysis</strong> – Balance fairness objectives against performance constraints.</li>
+<li class=""><strong>Documentation</strong> – Record assumptions, thresholds, limitations, and decisions.</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="m17-tips-for-effective-use">M.1.7 Tips for Effective Use<a href="#m17-tips-for-effective-use" class="hash-link" aria-label="Direct link to M.1.7 Tips for Effective Use" title="Direct link to M.1.7 Tips for Effective Use" translate="no">​</a></h3>
+<ul>
+<li class="">Start with group-level metrics, then analyze intersectional and individual fairness.</li>
+<li class="">Always visualize uncertainty to avoid over-interpreting small differences.</li>
+<li class="">Adjust escalation thresholds to align with regulatory or organizational priorities.</li>
+<li class="">Re-evaluate regularly as models, data, or deployment contexts evolve.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="r1-reporting-and-visualization"><strong>R.1 Reporting and Visualization</strong><a href="#r1-reporting-and-visualization" class="hash-link" aria-label="Direct link to r1-reporting-and-visualization" title="Direct link to r1-reporting-and-visualization" translate="no">​</a></h2>
+<p>This section outlines recommended visualizations and reporting steps to communicate fairness audit findings effectively to technical and non-technical stakeholders.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="r11-visualization-and-reporting">R.1.1 Visualization and Reporting<a href="#r11-visualization-and-reporting" class="hash-link" aria-label="Direct link to R.1.1 Visualization and Reporting" title="Direct link to R.1.1 Visualization and Reporting" translate="no">​</a></h3>
+<ul>
+<li class="">Embed visuals directly in MDX (e.g., <code>![Description](path/to/image.png)</code>) to keep reports self-contained.</li>
+<li class="">Pair each chart with a short caption explaining metric, cohort, confidence interval, and escalation tier.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="r12-confidence-based-escalation-thresholds">R.1.2 Confidence-Based Escalation Thresholds<a href="#r12-confidence-based-escalation-thresholds" class="hash-link" aria-label="Direct link to R.1.2 Confidence-Based Escalation Thresholds" title="Direct link to R.1.2 Confidence-Based Escalation Thresholds" translate="no">​</a></h3>
+<table><thead><tr><th>Confidence Level</th><th>Escalation Tier</th><th>Required Action</th></tr></thead><tbody><tr><td><strong>≥ 0.99</strong></td><td>Immediate Action</td><td>Trigger mitigation workflow</td></tr><tr><td><strong>≥ 0.95</strong></td><td>Investigation Required</td><td>Root-cause analysis + internal review</td></tr><tr><td><strong>≥ 0.90</strong></td><td>Enhanced Monitoring</td><td>Increase observation frequency</td></tr><tr><td>&lt; 0.90</td><td>Monitor</td><td>No immediate action</td></tr></tbody></table>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="r13-compute-confidence-level">R.1.3 Compute Confidence Level<a href="#r13-compute-confidence-level" class="hash-link" aria-label="Direct link to R.1.3 Compute Confidence Level" title="Direct link to R.1.3 Compute Confidence Level" translate="no">​</a></h3>
+<ul>
+<li class="">Option A: Hypothesis testing → Confidence = 1 − p-value (e.g., p=0.01 → 99%).</li>
+<li class="">Option B: Bootstrap probability → % of resamples where disparity exceeds policy threshold.</li>
+<li class="">Always pair confidence with a minimum effect-size threshold to avoid overreacting to tiny gaps.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="r14-reporting-template">R.1.4 Reporting Template<a href="#r14-reporting-template" class="hash-link" aria-label="Direct link to R.1.4 Reporting Template" title="Direct link to R.1.4 Reporting Template" translate="no">​</a></h3>
+<ul>
+<li class="">Primary table: metric, point estimate, confidence interval, confidence level, escalation tier.</li>
+<li class="">Executive summary: headline risks and recommended actions.</li>
+<li class="">Visuals: disparity chart, intersectional heatmap, trade-off scatter, threshold alert chart (with CIs and tiers).</li>
+<li class="">Traceability: note data cut, model version, generation date, and link to the producing notebook/report.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="r15-governance-integration">R.1.5 Governance Integration<a href="#r15-governance-integration" class="hash-link" aria-label="Direct link to R.1.5 Governance Integration" title="Direct link to R.1.5 Governance Integration" translate="no">​</a></h3>
+<ul>
+<li class="">Tier 1 (≥0.99): Freeze/mitigate, notify compliance, executive review.</li>
+<li class="">Tier 2 (≥0.95): Subgroup drill-down, feature impact, threshold sensitivity checks.</li>
+<li class="">Tier 3 (≥0.90): Increase monitoring frequency and schedule re-evaluation.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="r16-suggested-chart-types">R.1.6 Suggested Chart Types<a href="#r16-suggested-chart-types" class="hash-link" aria-label="Direct link to R.1.6 Suggested Chart Types" title="Direct link to R.1.6 Suggested Chart Types" translate="no">​</a></h3>
+<ul>
+<li class="">Fairness Disparity Chart: group gaps with CIs and threshold lines.</li>
+<li class="">Intersectional Heatmap: subgroup disparities with significance/size cues.</li>
+<li class="">Pareto (Fairness/Technical): bars by impact with cumulative line.</li>
+<li class="">Fairness vs Technical Scatter: trade-offs (accuracy vs gap) with frontier.</li>
+<li class="">Threshold Alert Chart: bands for monitor/investigate/action.</li>
+<li class="">Metric Evolution: time series with intervention markers.</li>
+<li class="">Small Sample / Intersectional Uncertainty: bubble/dot plot encoding N and CI width.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="r17-notes">R.1.7 Notes<a href="#r17-notes" class="hash-link" aria-label="Direct link to R.1.7 Notes" title="Direct link to R.1.7 Notes" translate="no">​</a></h3>
+<ul>
+<li class="">Record data cut, model version, and generation date for each artifact.</li>
+<li class="">List metrics shown, confidence levels, thresholds applied, and sources of visuals.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="v1-validation-framework"><strong>V.1 Validation Framework</strong><a href="#v1-validation-framework" class="hash-link" aria-label="Direct link to v1-validation-framework" title="Direct link to v1-validation-framework" translate="no">​</a></h2>
+<p>To verify audit effectiveness, teams must implement:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v11-reproducibility-validation">V.1.1 Reproducibility Validation<a href="#v11-reproducibility-validation" class="hash-link" aria-label="Direct link to V.1.1 Reproducibility Validation" title="Direct link to V.1.1 Reproducibility Validation" translate="no">​</a></h3>
+<ul>
+<li class="">Independent replication of metrics</li>
+<li class="">Version-controlled audit pipeline</li>
+<li class="">Traceable data lineage</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v12-drift-validation">V.1.2 Drift Validation<a href="#v12-drift-validation" class="hash-link" aria-label="Direct link to V.1.2 Drift Validation" title="Direct link to V.1.2 Drift Validation" translate="no">​</a></h3>
+<ul>
+<li class="">Fairness metrics tracked over time</li>
+<li class="">Subgroup-level drift alerts</li>
+<li class="">Feedback loop monitoring</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v13-mitigation-effectiveness-testing">V.1.3 Mitigation Effectiveness Testing<a href="#v13-mitigation-effectiveness-testing" class="hash-link" aria-label="Direct link to V.1.3 Mitigation Effectiveness Testing" title="Direct link to V.1.3 Mitigation Effectiveness Testing" translate="no">​</a></h3>
+<ul>
+<li class="">Before/after fairness comparison</li>
+<li class="">Performance impact analysis</li>
+<li class="">Harm-based justification review</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v14-intersectional-stability-check">V.1.4 Intersectional Stability Check<a href="#v14-intersectional-stability-check" class="hash-link" aria-label="Direct link to V.1.4 Intersectional Stability Check" title="Direct link to V.1.4 Intersectional Stability Check" translate="no">​</a></h3>
+<p>Ensure improvements for one group do not worsen outcomes for intersectional subgroups.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v15-independent-review">V.1.5 Independent Review<a href="#v15-independent-review" class="hash-link" aria-label="Direct link to V.1.5 Independent Review" title="Direct link to V.1.5 Independent Review" translate="no">​</a></h3>
+<ul>
+<li class="">Internal model governance review</li>
+<li class="">External audit when required</li>
+<li class="">Documentation completeness verification</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v16-adaptability-guidelines">V.1.6 Adaptability Guidelines<a href="#v16-adaptability-guidelines" class="hash-link" aria-label="Direct link to V.1.6 Adaptability Guidelines" title="Direct link to V.1.6 Adaptability Guidelines" translate="no">​</a></h3>
+<p>This playbook is domain-agnostic but requires contextual weighting adjustments.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="v161-application-domains">V.1.6.1 Application Domains<a href="#v161-application-domains" class="hash-link" aria-label="Direct link to V.1.6.1 Application Domains" title="Direct link to V.1.6.1 Application Domains" translate="no">​</a></h4>
+<ul>
+<li class="">Healthcare — Measurement bias in diagnostic proxies; higher severity weighting; strong calibration monitoring.</li>
+<li class="">Finance — Historical bias and feedback loops; strong threshold governance; approval-rate and decline-reason monitoring.</li>
+<li class="">Employment/HR — Representation bias in resumes/profiles; audit feature importances for protected proxies; monitor stage-by-stage pass-through.</li>
+<li class="">Education — Content and access bias; check placement/streaming thresholds; review longitudinal attainment gaps.</li>
+<li class="">Public Safety/Justice — Label bias from policing patterns; prioritize error-type controls; validate disparate impact under policy constraints.</li>
+<li class="">Housing &amp; Benefits — Geographic and socioeconomic proxies; cap false denials; monitor re-review/appeal outcomes.</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="v162-mathematical-formulation-types">V.1.6.2 Mathematical Formulation Types<a href="#v162-mathematical-formulation-types" class="hash-link" aria-label="Direct link to V.1.6.2 Mathematical Formulation Types" title="Direct link to V.1.6.2 Mathematical Formulation Types" translate="no">​</a></h4>
+<ul>
+<li class="">Binary Classification — Emphasize error-rate parity, threshold sensitivity, and calibration where scores are exposed.</li>
+<li class="">Multi-Class / Multi-Label — Per-class disparity checks; ensure minority classes are not deprioritized; verify confusion across adjacent classes.</li>
+<li class="">Regression / Scoring — Residual distribution parity; error magnitude fairness; calibration across score ranges and subgroups.</li>
+<li class="">Ranking / Recommendation — Top-k exposure and coverage parity; mitigate position bias; diversify candidate sets for high-stakes slots.</li>
+<li class="">Optimization / Resource Allocation — Incorporate fairness constraints (e.g., group floors/ceilings, budgeted parity); stress-test under demand shifts.</li>
+</ul>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v17-organizational-implementation-guidelines">V.1.7 Organizational Implementation Guidelines<a href="#v17-organizational-implementation-guidelines" class="hash-link" aria-label="Direct link to V.1.7 Organizational Implementation Guidelines" title="Direct link to V.1.7 Organizational Implementation Guidelines" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="v171-required-expertise">V.1.7.1 Required Expertise<a href="#v171-required-expertise" class="hash-link" aria-label="Direct link to V.1.7.1 Required Expertise" title="Direct link to V.1.7.1 Required Expertise" translate="no">​</a></h4>
+<ul>
+<li class="">Data Science</li>
+<li class="">Domain Expert</li>
+<li class="">Legal/Compliance</li>
+<li class="">Responsible AI or Ethics Lead</li>
+<li class="">Engineering</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="v172-typical-time-requirements-mid-sized-project">V.1.7.2 Typical Time Requirements (Mid-Sized Project)<a href="#v172-typical-time-requirements-mid-sized-project" class="hash-link" aria-label="Direct link to V.1.7.2 Typical Time Requirements (Mid-Sized Project)" title="Direct link to V.1.7.2 Typical Time Requirements (Mid-Sized Project)" translate="no">​</a></h4>
+<ul>
+<li class="">Historical Assessment: 1–2 weeks</li>
+<li class="">Fairness Definition Selection: 1 week</li>
+<li class="">Bias Identification: 1–2 weeks</li>
+<li class="">Metrics Evaluation &amp; Monitoring: Ongoing</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="v173-integration-with-development-lifecycle">V.1.7.3 Integration with Development Lifecycle<a href="#v173-integration-with-development-lifecycle" class="hash-link" aria-label="Direct link to V.1.7.3 Integration with Development Lifecycle" title="Direct link to V.1.7.3 Integration with Development Lifecycle" translate="no">​</a></h4>
+<table><thead><tr><th>Development Phase</th><th>Playbook Integration</th></tr></thead><tbody><tr><td>Problem Framing</td><td>Historical Context Assessment</td></tr><tr><td>Model Design</td><td>Fairness Definition Selection</td></tr><tr><td>Training</td><td>Bias Source Identification</td></tr><tr><td>Evaluation</td><td>Comprehensive Metrics</td></tr><tr><td>Deployment</td><td>Monitoring &amp; Drift Tracking</td></tr><tr><td>Retraining</td><td>Full Re-validation</td></tr></tbody></table>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v18-core-governance-principles">V.1.8 Core Governance Principles<a href="#v18-core-governance-principles" class="hash-link" aria-label="Direct link to V.1.8 Core Governance Principles" title="Direct link to V.1.8 Core Governance Principles" translate="no">​</a></h3>
+<ol>
+<li class="">Fairness must be justified, not assumed.</li>
+<li class="">Intersectionality is mandatory, not optional.</li>
+<li class="">Trade-offs must be documented explicitly.</li>
+<li class="">Feedback loops require longitudinal monitoring.</li>
+<li class="">Audit outputs must be regulator-ready.</li>
+</ol>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="v19-expected-outcomes">V.1.9 Expected Outcomes<a href="#v19-expected-outcomes" class="hash-link" aria-label="Direct link to V.1.9 Expected Outcomes" title="Direct link to V.1.9 Expected Outcomes" translate="no">​</a></h3>
+<p>Implementing this playbook enables:</p>
+<ul>
+<li class="">Structured fairness reasoning</li>
+<li class="">Traceable governance decisions</li>
+<li class="">Prioritized mitigation</li>
+<li class="">Longitudinal fairness monitoring</li>
+<li class="">Cross-domain adaptability</li>
+<li class="">Institutional accountability</li>
+</ul>
+<p>This framework transforms fairness from a metric exercise into a continuous governance process embedded within the ML lifecycle.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/Herkata/fairness-audit/tree/main/docs/01-implementation-guide.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--next" href="/fairness-audit/docs/historical-context-assessment"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Historical Context Assessment Tool</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#general-guidelines" class="table-of-contents__link toc-highlight"><strong>General Guidelines</strong></a></li><li><a href="#h1-historical-context-assessment" class="table-of-contents__link toc-highlight"><strong>H.1 Historical Context Assessment</strong></a><ul><li><a href="#h11-governance-setup--initial-risk-structuring" class="table-of-contents__link toc-highlight">H.1.1 Governance Setup &amp; Initial Risk Structuring</a></li><li><a href="#h12-execute-the-questionnaire" class="table-of-contents__link toc-highlight">H.1.2 Execute the Questionnaire</a></li><li><a href="#h13-develop-a-risk-classification-matrix" class="table-of-contents__link toc-highlight">H.1.3 Develop a Risk Classification Matrix</a></li><li><a href="#h14-create-an-executive-summary" class="table-of-contents__link toc-highlight">H.1.4 Create an Executive Summary</a></li></ul></li><li><a href="#d1-fairness-definition-selection" class="table-of-contents__link toc-highlight"><strong>D.1 Fairness Definition Selection</strong></a><ul><li><a href="#d11-required-inputs-from-historical-context-assessment" class="table-of-contents__link toc-highlight">D.1.1 Required Inputs from Historical Context Assessment</a></li><li><a href="#d12-steps-in-the-fairness-definition-selection-tool" class="table-of-contents__link toc-highlight">D.1.2 Steps in the Fairness Definition Selection Tool</a></li><li><a href="#d13-final-output-of-this-stage" class="table-of-contents__link toc-highlight">D.1.3 Final Output of This Stage</a></li></ul></li><li><a href="#b1-bias-source-identification--prioritization" class="table-of-contents__link toc-highlight"><strong>B.1 Bias Source Identification &amp; Prioritization</strong></a><ul><li><a href="#b11-taxonomy-stage--identify-relevant-bias-types" class="table-of-contents__link toc-highlight">B.1.1 Taxonomy Stage – Identify Relevant Bias Types</a></li><li><a href="#b12-detection-stage--conduct-targeted-analysis" class="table-of-contents__link toc-highlight">B.1.2 Detection Stage – Conduct Targeted Analysis</a></li><li><a href="#b13-evaluation-stage--assess-each-bias-source" class="table-of-contents__link toc-highlight">B.1.3 Evaluation Stage – Assess Each Bias Source</a></li><li><a href="#b14-prioritization-stage--calculate-priority-scores" class="table-of-contents__link toc-highlight">B.1.4 Prioritization Stage – Calculate Priority Scores</a></li><li><a href="#b15-resource-allocation--categorize-and-act" class="table-of-contents__link toc-highlight">B.1.5 Resource Allocation – Categorize and Act</a></li><li><a href="#b16-final-outcome" class="table-of-contents__link toc-highlight">B.1.6 Final Outcome</a></li></ul></li><li><a href="#m1-comprehensive-metrics-evaluation" class="table-of-contents__link toc-highlight"><strong>M.1 Comprehensive Metrics Evaluation</strong></a><ul><li><a href="#m11-define-the-scope" class="table-of-contents__link toc-highlight">M.1.1 Define the Scope</a></li><li><a href="#m12-select-metrics" class="table-of-contents__link toc-highlight">M.1.2 Select Metrics</a></li><li><a href="#m13-prepare-the-dataset" class="table-of-contents__link toc-highlight">M.1.3 Prepare the Dataset</a></li><li><a href="#m14-calculating-metrics" class="table-of-contents__link toc-highlight">M.1.4 Calculating Metrics</a></li><li><a href="#m15-visualization-and-reporting" class="table-of-contents__link toc-highlight">M.1.5 Visualization and Reporting</a></li><li><a href="#m16-interpretation-and-decision-making" class="table-of-contents__link toc-highlight">M.1.6 Interpretation and Decision-Making</a></li><li><a href="#m17-tips-for-effective-use" class="table-of-contents__link toc-highlight">M.1.7 Tips for Effective Use</a></li></ul></li><li><a href="#r1-reporting-and-visualization" class="table-of-contents__link toc-highlight"><strong>R.1 Reporting and Visualization</strong></a><ul><li><a href="#r11-visualization-and-reporting" class="table-of-contents__link toc-highlight">R.1.1 Visualization and Reporting</a></li><li><a href="#r12-confidence-based-escalation-thresholds" class="table-of-contents__link toc-highlight">R.1.2 Confidence-Based Escalation Thresholds</a></li><li><a href="#r13-compute-confidence-level" class="table-of-contents__link toc-highlight">R.1.3 Compute Confidence Level</a></li><li><a href="#r14-reporting-template" class="table-of-contents__link toc-highlight">R.1.4 Reporting Template</a></li><li><a href="#r15-governance-integration" class="table-of-contents__link toc-highlight">R.1.5 Governance Integration</a></li><li><a href="#r16-suggested-chart-types" class="table-of-contents__link toc-highlight">R.1.6 Suggested Chart Types</a></li><li><a href="#r17-notes" class="table-of-contents__link toc-highlight">R.1.7 Notes</a></li></ul></li><li><a href="#v1-validation-framework" class="table-of-contents__link toc-highlight"><strong>V.1 Validation Framework</strong></a><ul><li><a href="#v11-reproducibility-validation" class="table-of-contents__link toc-highlight">V.1.1 Reproducibility Validation</a></li><li><a href="#v12-drift-validation" class="table-of-contents__link toc-highlight">V.1.2 Drift Validation</a></li><li><a href="#v13-mitigation-effectiveness-testing" class="table-of-contents__link toc-highlight">V.1.3 Mitigation Effectiveness Testing</a></li><li><a href="#v14-intersectional-stability-check" class="table-of-contents__link toc-highlight">V.1.4 Intersectional Stability Check</a></li><li><a href="#v15-independent-review" class="table-of-contents__link toc-highlight">V.1.5 Independent Review</a></li><li><a href="#v16-adaptability-guidelines" class="table-of-contents__link toc-highlight">V.1.6 Adaptability Guidelines</a></li><li><a href="#v17-organizational-implementation-guidelines" class="table-of-contents__link toc-highlight">V.1.7 Organizational Implementation Guidelines</a></li><li><a href="#v18-core-governance-principles" class="table-of-contents__link toc-highlight">V.1.8 Core Governance Principles</a></li><li><a href="#v19-expected-outcomes" class="table-of-contents__link toc-highlight">V.1.9 Expected Outcomes</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/fairness-audit/docs/implementation-guide">Implementation Guide</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Herkata/fairness-audit" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fairness Audit Playbook. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

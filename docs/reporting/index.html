@@ -1,0 +1,269 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-reporting" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Reporting and Visualization | Fairness Audit Playbook</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://herkata.github.io/fairness-audit/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://herkata.github.io/fairness-audit/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://herkata.github.io/fairness-audit/docs/reporting"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Reporting and Visualization | Fairness Audit Playbook"><meta data-rh="true" name="description" content="1 Visualization and Reporting"><meta data-rh="true" property="og:description" content="1 Visualization and Reporting"><link data-rh="true" rel="icon" href="/fairness-audit/img/katkatu-merleg.svg"><link data-rh="true" rel="canonical" href="https://herkata.github.io/fairness-audit/docs/reporting"><link data-rh="true" rel="alternate" href="https://herkata.github.io/fairness-audit/docs/reporting" hreflang="en"><link data-rh="true" rel="alternate" href="https://herkata.github.io/fairness-audit/docs/reporting" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Reporting and Visualization","item":"https://herkata.github.io/fairness-audit/docs/reporting"}]}</script><link rel="alternate" type="application/rss+xml" href="/fairness-audit/blog/rss.xml" title="Fairness Audit Playbook RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/fairness-audit/blog/atom.xml" title="Fairness Audit Playbook Atom Feed"><link rel="stylesheet" href="/fairness-audit/assets/css/styles.69bbdfb0.css">
+<script src="/fairness-audit/assets/js/runtime~main.6d003bb2.js" defer="defer"></script>
+<script src="/fairness-audit/assets/js/main.0fb0aa49.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/fairness-audit/img/katkatu-merleg.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-fairness-disparity.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-intersectional-heatmap.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-pareto-fairness.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-pareto-technical.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-fairness-technical-scatter.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-cumulative-disparity.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-confidence-ribbon.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-threshold-alert.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-metric-evolution.svg"><link rel="preload" as="image" href="/fairness-audit/img/dummy-small-sample-bubble.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/fairness-audit/"><div class="navbar__logo"><img src="/fairness-audit/img/katkatu-merleg.svg" alt="Kétkarú mérleg" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/fairness-audit/img/katkatu-merleg.svg" alt="Kétkarú mérleg" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Fairness Audit Playbook</b></a><a class="navbar__item navbar__link" href="/fairness-audit/docs/fairness-definition-literature">Literature</a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/fairness-audit/docs/implementation-guide">Tools</a><a class="navbar__item navbar__link" href="/fairness-audit/docs/sources">Sources and Plans</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/Herkata/fairness-audit" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/implementation-guide"><span title="Implementation Guide" class="linkLabel_WmDU">Implementation Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/historical-context-assessment"><span title="Historical Context Assessment Tool" class="linkLabel_WmDU">Historical Context Assessment Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/fairness-definition-selection"><span title="Fairness Definition Selection Tool" class="linkLabel_WmDU">Fairness Definition Selection Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/bias-source-identification"><span title="Bias Source Identification Tool" class="linkLabel_WmDU">Bias Source Identification Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/comprehensive-metrics"><span title="Comprehensive Metrics Tool" class="linkLabel_WmDU">Comprehensive Metrics Tool</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/statistical-validation"><span title="Statistical Validation" class="linkLabel_WmDU">Statistical Validation</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/fairness-audit/docs/reporting"><span title="Reporting and Visualization" class="linkLabel_WmDU">Reporting and Visualization</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/fairness-audit/docs/case-studies"><span title="Case Study" class="linkLabel_WmDU">Case Study</span></a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/fairness-audit/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Reporting and Visualization</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Reporting and Visualization</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-visualization-and-reporting"><strong>1 Visualization and Reporting</strong><a href="#1-visualization-and-reporting" class="hash-link" aria-label="Direct link to 1-visualization-and-reporting" title="Direct link to 1-visualization-and-reporting" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-image-embedding-for-visualizations">1.1 Image Embedding for Visualizations<a href="#11-image-embedding-for-visualizations" class="hash-link" aria-label="Direct link to 1.1 Image Embedding for Visualizations" title="Direct link to 1.1 Image Embedding for Visualizations" translate="no">​</a></h3>
+<p>To include images in your documentation, you can use the following syntax:</p>
+<div class="language-mdx codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#F8F8F2;--prism-background-color:#282A36"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-mdx codeBlock_bY9V thin-scrollbar" style="color:#F8F8F2;background-color:#282A36"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#F8F8F2"><span class="token plain">![Description of the image](path/to/image.png)</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-confidence-based-escalation-thresholds"><strong>2 Confidence-Based Escalation Thresholds</strong><a href="#2-confidence-based-escalation-thresholds" class="hash-link" aria-label="Direct link to 2-confidence-based-escalation-thresholds" title="Direct link to 2-confidence-based-escalation-thresholds" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="21-threshold-definitions">2.1 Threshold Definitions<a href="#21-threshold-definitions" class="hash-link" aria-label="Direct link to 2.1 Threshold Definitions" title="Direct link to 2.1 Threshold Definitions" translate="no">​</a></h3>
+<table><thead><tr><th>Confidence Level</th><th>Escalation Tier</th><th>Required Action</th></tr></thead><tbody><tr><td><strong>≥ 0.99</strong></td><td>🔴 Immediate Action</td><td>Trigger mitigation workflow</td></tr><tr><td><strong>≥ 0.95</strong></td><td>🟠 Investigation Required</td><td>Root-cause analysis + internal review</td></tr><tr><td><strong>≥ 0.90</strong></td><td>🟡 Enhanced Monitoring</td><td>Increase observation frequency</td></tr><tr><td>&lt; 0.90</td><td>🟢 Monitor</td><td>No immediate action</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-compute-the-confidence-level"><strong>3 Compute the Confidence Level</strong><a href="#3-compute-the-confidence-level" class="hash-link" aria-label="Direct link to 3-compute-the-confidence-level" title="Direct link to 3-compute-the-confidence-level" translate="no">​</a></h2>
+<p>You can derive this from:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="31-option-a-hypothesis-testing">3.1 Option A: Hypothesis Testing<a href="#31-option-a-hypothesis-testing" class="hash-link" aria-label="Direct link to 3.1 Option A: Hypothesis Testing" title="Direct link to 3.1 Option A: Hypothesis Testing" translate="no">​</a></h3>
+<ul>
+<li class="">Confidence = 1 − p-value<!-- -->
+<ul>
+<li class="">p = 0.01 → 99% confidence</li>
+<li class="">p = 0.05 → 95% confidence</li>
+<li class="">p = 0.10 → 90% confidence</li>
+</ul>
+</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="32-option-b-bootstrap-probability">3.2 Option B: Bootstrap Probability<a href="#32-option-b-bootstrap-probability" class="hash-link" aria-label="Direct link to 3.2 Option B: Bootstrap Probability" title="Direct link to 3.2 Option B: Bootstrap Probability" translate="no">​</a></h3>
+<ul>
+<li class="">% of bootstrap samples where disparity &gt; 0 (or exceeds policy threshold)</li>
+</ul>
+<p>Example:</p>
+<ul>
+<li class="">99.3% of resamples show disparity &gt; 0 → Immediate Action</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-sample-report-with-dummy-values"><strong>4 Sample Report with Dummy Values</strong><a href="#4-sample-report-with-dummy-values" class="hash-link" aria-label="Direct link to 4-sample-report-with-dummy-values" title="Direct link to 4-sample-report-with-dummy-values" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="41-primary-metrics">4.1 Primary Metrics<a href="#41-primary-metrics" class="hash-link" aria-label="Direct link to 4.1 Primary Metrics" title="Direct link to 4.1 Primary Metrics" translate="no">​</a></h3>
+<table><thead><tr><th>Metric</th><th>Point Estimate</th><th>95% CI</th><th>Confidence</th><th>Escalation</th></tr></thead><tbody><tr><td>Demographic Parity Gap</td><td>0.08</td><td>[0.03, 0.13]</td><td>0.97</td><td>🟠 Investigation</td></tr><tr><td>Equal Opportunity Gap</td><td>0.05</td><td>[0.01, 0.09]</td><td>0.94</td><td>🟡 Monitoring</td></tr><tr><td>Worst-Group Error Gap</td><td>0.15</td><td>[0.09, 0.21]</td><td>0.995</td><td>🔴 Immediate Action</td></tr></tbody></table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-how-this-improves-your-framework"><strong>5 How This Improves Your Framework</strong><a href="#5-how-this-improves-your-framework" class="hash-link" aria-label="Direct link to 5-how-this-improves-your-framework" title="Direct link to 5-how-this-improves-your-framework" translate="no">​</a></h2>
+<p>This does three important things:</p>
+<ol>
+<li class="">Separates statistical strength from effect size</li>
+<li class="">Prevents overreaction to weak signals</li>
+<li class="">Creates objective governance triggers</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-important-pair-confidence-with-effect-size"><strong>6 Important: Pair Confidence with Effect Size</strong><a href="#6-important-pair-confidence-with-effect-size" class="hash-link" aria-label="Direct link to 6-important-pair-confidence-with-effect-size" title="Direct link to 6-important-pair-confidence-with-effect-size" translate="no">​</a></h2>
+<p>Confidence alone is not enough.</p>
+<p>You should define <strong>minimum materiality thresholds</strong>:</p>
+<p>Example:</p>
+<ul>
+<li class="">Only escalate if:<!-- -->
+<ul>
+<li class="">Confidence ≥ threshold AND</li>
+<li class="">Disparity ≥ 0.05 absolute difference</li>
+</ul>
+</li>
+</ul>
+<p>This prevents:</p>
+<ul>
+<li class="">Large confidence on tiny but meaningless gaps</li>
+<li class="">Small sample noise driving escalation</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="7-visual-reporting-template-recommended-layout"><strong>7 Visual Reporting Template (Recommended Layout)</strong><a href="#7-visual-reporting-template-recommended-layout" class="hash-link" aria-label="Direct link to 7-visual-reporting-template-recommended-layout" title="Direct link to 7-visual-reporting-template-recommended-layout" translate="no">​</a></h2>
+<p>For each metric visualization:</p>
+<ul>
+<li class="">Dot = Point estimate</li>
+<li class="">Vertical line = CI</li>
+<li class="">Horizontal line = 0</li>
+<li class="">Shaded bands for:<!-- -->
+<ul>
+<li class="">90% zone</li>
+<li class="">95% zone</li>
+<li class="">99% zone</li>
+</ul>
+</li>
+</ul>
+<p>Under chart:</p>
+<blockquote>
+<p>Confidence Level: 99.5%</p>
+<p>Escalation Tier: Immediate Action</p>
+</blockquote>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="8-governance-integration"><strong>8 Governance Integration</strong><a href="#8-governance-integration" class="hash-link" aria-label="Direct link to 8-governance-integration" title="Direct link to 8-governance-integration" translate="no">​</a></h2>
+<p>You can formalize this as:</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="81-tier-1--immediate-action--099">8.1 Tier 1 – Immediate Action (≥ 0.99)<a href="#81-tier-1--immediate-action--099" class="hash-link" aria-label="Direct link to 8.1 Tier 1 – Immediate Action (≥ 0.99)" title="Direct link to 8.1 Tier 1 – Immediate Action (≥ 0.99)" translate="no">​</a></h3>
+<ul>
+<li class="">Freeze model version (if severe)</li>
+<li class="">Launch bias mitigation workflow</li>
+<li class="">Notify compliance</li>
+<li class="">Executive-level review</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="82-tier-2--investigation--095">8.2 Tier 2 – Investigation (≥ 0.95)<a href="#82-tier-2--investigation--095" class="hash-link" aria-label="Direct link to 8.2 Tier 2 – Investigation (≥ 0.95)" title="Direct link to 8.2 Tier 2 – Investigation (≥ 0.95)" translate="no">​</a></h3>
+<ul>
+<li class="">Subgroup drill-down</li>
+<li class="">Feature impact analysis</li>
+<li class="">Threshold sensitivity testing</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="83-tier-3--monitoring--090">8.3 Tier 3 – Monitoring (≥ 0.90)<a href="#83-tier-3--monitoring--090" class="hash-link" aria-label="Direct link to 8.3 Tier 3 – Monitoring (≥ 0.90)" title="Direct link to 8.3 Tier 3 – Monitoring (≥ 0.90)" translate="no">​</a></h3>
+<ul>
+<li class="">Increase reporting frequency</li>
+<li class="">Watch for trend amplification</li>
+<li class="">Schedule re-evaluation next cycle</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="9-why-this-tiering-is-strong"><strong>9 Why This Tiering Is Strong</strong><a href="#9-why-this-tiering-is-strong" class="hash-link" aria-label="Direct link to 9-why-this-tiering-is-strong" title="Direct link to 9-why-this-tiering-is-strong" translate="no">​</a></h2>
+<p>It balances:</p>
+<ul>
+<li class="">Statistical rigor</li>
+<li class="">Operational practicality</li>
+<li class="">Regulatory defensibility</li>
+<li class="">Risk-based governance</li>
+</ul>
+<p>It also prevents “fairness alarm fatigue.”</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="10-suggested-chart-types"><strong>10 Suggested Chart Types</strong><a href="#10-suggested-chart-types" class="hash-link" aria-label="Direct link to 10-suggested-chart-types" title="Direct link to 10-suggested-chart-types" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="101-fairness-disparity-chart">10.1 Fairness Disparity Chart<a href="#101-fairness-disparity-chart" class="hash-link" aria-label="Direct link to 10.1 Fairness Disparity Chart" title="Direct link to 10.1 Fairness Disparity Chart" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Group-level bar chart</li>
+<li class=""><strong>Purpose:</strong> Show primary metrics (e.g., Demographic Parity Gap, Equal Opportunity Gap) across protected groups</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">Confidence intervals (error bars)</li>
+<li class="">Color-coded by statistical significance or escalation tiers</li>
+<li class="">Reference lines for thresholds (monitor, investigate, immediate action)</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-fairness-disparity.svg" alt="Fairness disparity demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Fairness gap per group; bars show group rates, dotted line is parity target, whiskers are CIs.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="102-intersectional-heatmap">10.2 Intersectional Heatmap<a href="#102-intersectional-heatmap" class="hash-link" aria-label="Direct link to 10.2 Intersectional Heatmap" title="Direct link to 10.2 Intersectional Heatmap" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Heatmap</li>
+<li class=""><strong>Purpose:</strong> Capture disparities across intersectional subgroups (e.g., race × gender × age)</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">Color gradient = magnitude of disparity</li>
+<li class="">Cell size or opacity = sample size</li>
+<li class="">Optional: overlay significance markers</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-intersectional-heatmap.svg" alt="Intersectional heatmap demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Rows = gender bands, columns = groups; colors encode disparity (green low, amber medium, red high).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="103-pareto-diagram-of-fairness-metrics">10.3 Pareto Diagram of Fairness Metrics<a href="#103-pareto-diagram-of-fairness-metrics" class="hash-link" aria-label="Direct link to 10.3 Pareto Diagram of Fairness Metrics" title="Direct link to 10.3 Pareto Diagram of Fairness Metrics" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Bar + cumulative line chart</li>
+<li class=""><strong>Purpose:</strong> Highlight which fairness metrics contribute most to overall disparity</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">X-axis = metrics sorted by impact</li>
+<li class="">Y-axis = magnitude of disparity (bars)</li>
+<li class="">Right Y-axis = cumulative % contribution (line)</li>
+<li class="">Color bars by escalation tier</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-pareto-fairness.svg" alt="Pareto of fairness metrics demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Cumulative line shows coverage by top fairness gaps; bars are ordered by contribution.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="104-pareto-diagram-of-technical-metrics">10.4 Pareto Diagram of Technical Metrics<a href="#104-pareto-diagram-of-technical-metrics" class="hash-link" aria-label="Direct link to 10.4 Pareto Diagram of Technical Metrics" title="Direct link to 10.4 Pareto Diagram of Technical Metrics" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Bar + cumulative line chart</li>
+<li class=""><strong>Purpose:</strong> Prioritize technical issues (accuracy, calibration, F1 differences) by their contribution to performance gaps</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">Same structure as fairness Pareto</li>
+<li class="">Optional overlay = confidence in metrics</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-pareto-technical.svg" alt="Pareto of technical metrics demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Same as fairness Pareto but for technical metrics (acc, AUC, F1, calibration, drift).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="105-fairness-vs-technical-trade-off-scatter-plot">10.5 Fairness vs Technical Trade-Off Scatter Plot<a href="#105-fairness-vs-technical-trade-off-scatter-plot" class="hash-link" aria-label="Direct link to 10.5 Fairness vs Technical Trade-Off Scatter Plot" title="Direct link to 10.5 Fairness vs Technical Trade-Off Scatter Plot" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Scatter / Pareto frontier plot</li>
+<li class=""><strong>Purpose:</strong> Visualize the trade-off between fairness and technical metrics (e.g., accuracy vs demographic parity gap)</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">X-axis = technical metric (accuracy, AUC, etc.)</li>
+<li class="">Y-axis = fairness metric (gap or difference)</li>
+<li class="">Point color/size = confidence intervals or escalation tier</li>
+<li class="">Pareto frontier line showing optimal trade-offs</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-fairness-technical-scatter.svg" alt="Fairness vs technical scatter demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Accuracy on X, fairness gap on Y; bottom-right is better (higher accuracy, lower gap).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="106-cumulative-disparity-line-chart">10.6 Cumulative Disparity Line Chart<a href="#106-cumulative-disparity-line-chart" class="hash-link" aria-label="Direct link to 10.6 Cumulative Disparity Line Chart" title="Direct link to 10.6 Cumulative Disparity Line Chart" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Line chart</li>
+<li class=""><strong>Purpose:</strong> Show cumulative impact of fairness gaps across groups or intersectional categories</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">X-axis = group or subgroup</li>
+<li class="">Y-axis = cumulative disparity</li>
+<li class="">Overlay multiple metrics for comparison</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-cumulative-disparity.svg" alt="Cumulative disparity demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Line accumulates disparity across ordered groups to show worst-tail impact.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="107-confidence-interval-ribbon-chart">10.7 Confidence Interval Ribbon Chart<a href="#107-confidence-interval-ribbon-chart" class="hash-link" aria-label="Direct link to 10.7 Confidence Interval Ribbon Chart" title="Direct link to 10.7 Confidence Interval Ribbon Chart" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Line + shaded ribbon</li>
+<li class=""><strong>Purpose:</strong> Show point estimate of a metric and its uncertainty across groups, over time, or across model versions</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">Line = metric estimate</li>
+<li class="">Shaded ribbon = confidence interval</li>
+<li class="">Optional: color by escalation tier or threshold level</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-confidence-ribbon.svg" alt="Confidence interval ribbon demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Ribbon is 95% CI; center line is point estimate across time/versions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="108-threshold-alert-chart">10.8 Threshold Alert Chart<a href="#108-threshold-alert-chart" class="hash-link" aria-label="Direct link to 10.8 Threshold Alert Chart" title="Direct link to 10.8 Threshold Alert Chart" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Bar or line chart with threshold bands</li>
+<li class=""><strong>Purpose:</strong> Quickly identify which metrics exceed monitoring, investigation, or immediate action thresholds</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">Horizontal bands for 0.90 (monitor), 0.95 (investigate), 0.99 (immediate action)</li>
+<li class="">Bars = metric values with confidence intervals</li>
+<li class="">Color-coded alerts for exceeding thresholds</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-threshold-alert.svg" alt="Threshold alert demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Bands mark monitor/investigate/immediate tiers; bars show metric values against those bands.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="109-metric-evolution-over-time">10.9 Metric Evolution Over Time<a href="#109-metric-evolution-over-time" class="hash-link" aria-label="Direct link to 10.9 Metric Evolution Over Time" title="Direct link to 10.9 Metric Evolution Over Time" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Time series line chart</li>
+<li class=""><strong>Purpose:</strong> Track fairness and technical metrics longitudinally to detect trends or drifts</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">Lines for primary fairness metrics and technical metrics</li>
+<li class="">Shaded confidence intervals</li>
+<li class="">Highlight intervention points or policy changes</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-metric-evolution.svg" alt="Metric evolution demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Blue line = fairness gap trend; orange = accuracy; marker indicates intervention point.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1010-small-sample--intersectional-uncertainty-chart">10.10 Small Sample / Intersectional Uncertainty Chart<a href="#1010-small-sample--intersectional-uncertainty-chart" class="hash-link" aria-label="Direct link to 10.10 Small Sample / Intersectional Uncertainty Chart" title="Direct link to 10.10 Small Sample / Intersectional Uncertainty Chart" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Type:</strong> Bubble chart or dot plot</li>
+<li class=""><strong>Purpose:</strong> Visualize both disparity magnitude and uncertainty for small/intersectional groups</li>
+<li class=""><strong>Features:</strong>
+<ul>
+<li class="">X-axis = group / intersectional subgroup</li>
+<li class="">Y-axis = metric value</li>
+<li class="">Bubble size = sample size</li>
+<li class="">Bubble color = confidence interval width</li>
+</ul>
+</li>
+</ul>
+<img src="/fairness-audit/img/dummy-small-sample-bubble.svg" alt="Small sample bubble demo" style="max-width:620px;width:100%;display:block;margin:12px 0">
+<p>Y = disparity, X = sample size proxy; bubble size = N, color can encode stability.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-notes"><strong>11 Notes</strong><a href="#11-notes" class="hash-link" aria-label="Direct link to 11-notes" title="Direct link to 11-notes" translate="no">​</a></h2>
+<ul>
+<li class="">Record data cut, model version, and date the visuals were generated.</li>
+<li class="">Note which metrics are shown, their confidence levels, and thresholds applied.</li>
+<li class="">Link to the notebook/report that produced the charts and the source file names used in the doc.</li>
+</ul></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/Herkata/fairness-audit/tree/main/docs/12-reporting.mdx" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/fairness-audit/docs/statistical-validation"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Statistical Validation</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/fairness-audit/docs/case-studies"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Case Study</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#1-visualization-and-reporting" class="table-of-contents__link toc-highlight"><strong>1 Visualization and Reporting</strong></a><ul><li><a href="#11-image-embedding-for-visualizations" class="table-of-contents__link toc-highlight">1.1 Image Embedding for Visualizations</a></li></ul></li><li><a href="#2-confidence-based-escalation-thresholds" class="table-of-contents__link toc-highlight"><strong>2 Confidence-Based Escalation Thresholds</strong></a><ul><li><a href="#21-threshold-definitions" class="table-of-contents__link toc-highlight">2.1 Threshold Definitions</a></li></ul></li><li><a href="#3-compute-the-confidence-level" class="table-of-contents__link toc-highlight"><strong>3 Compute the Confidence Level</strong></a><ul><li><a href="#31-option-a-hypothesis-testing" class="table-of-contents__link toc-highlight">3.1 Option A: Hypothesis Testing</a></li><li><a href="#32-option-b-bootstrap-probability" class="table-of-contents__link toc-highlight">3.2 Option B: Bootstrap Probability</a></li></ul></li><li><a href="#4-sample-report-with-dummy-values" class="table-of-contents__link toc-highlight"><strong>4 Sample Report with Dummy Values</strong></a><ul><li><a href="#41-primary-metrics" class="table-of-contents__link toc-highlight">4.1 Primary Metrics</a></li></ul></li><li><a href="#5-how-this-improves-your-framework" class="table-of-contents__link toc-highlight"><strong>5 How This Improves Your Framework</strong></a></li><li><a href="#6-important-pair-confidence-with-effect-size" class="table-of-contents__link toc-highlight"><strong>6 Important: Pair Confidence with Effect Size</strong></a></li><li><a href="#7-visual-reporting-template-recommended-layout" class="table-of-contents__link toc-highlight"><strong>7 Visual Reporting Template (Recommended Layout)</strong></a></li><li><a href="#8-governance-integration" class="table-of-contents__link toc-highlight"><strong>8 Governance Integration</strong></a><ul><li><a href="#81-tier-1--immediate-action--099" class="table-of-contents__link toc-highlight">8.1 Tier 1 – Immediate Action (≥ 0.99)</a></li><li><a href="#82-tier-2--investigation--095" class="table-of-contents__link toc-highlight">8.2 Tier 2 – Investigation (≥ 0.95)</a></li><li><a href="#83-tier-3--monitoring--090" class="table-of-contents__link toc-highlight">8.3 Tier 3 – Monitoring (≥ 0.90)</a></li></ul></li><li><a href="#9-why-this-tiering-is-strong" class="table-of-contents__link toc-highlight"><strong>9 Why This Tiering Is Strong</strong></a></li><li><a href="#10-suggested-chart-types" class="table-of-contents__link toc-highlight"><strong>10 Suggested Chart Types</strong></a><ul><li><a href="#101-fairness-disparity-chart" class="table-of-contents__link toc-highlight">10.1 Fairness Disparity Chart</a></li><li><a href="#102-intersectional-heatmap" class="table-of-contents__link toc-highlight">10.2 Intersectional Heatmap</a></li><li><a href="#103-pareto-diagram-of-fairness-metrics" class="table-of-contents__link toc-highlight">10.3 Pareto Diagram of Fairness Metrics</a></li><li><a href="#104-pareto-diagram-of-technical-metrics" class="table-of-contents__link toc-highlight">10.4 Pareto Diagram of Technical Metrics</a></li><li><a href="#105-fairness-vs-technical-trade-off-scatter-plot" class="table-of-contents__link toc-highlight">10.5 Fairness vs Technical Trade-Off Scatter Plot</a></li><li><a href="#106-cumulative-disparity-line-chart" class="table-of-contents__link toc-highlight">10.6 Cumulative Disparity Line Chart</a></li><li><a href="#107-confidence-interval-ribbon-chart" class="table-of-contents__link toc-highlight">10.7 Confidence Interval Ribbon Chart</a></li><li><a href="#108-threshold-alert-chart" class="table-of-contents__link toc-highlight">10.8 Threshold Alert Chart</a></li><li><a href="#109-metric-evolution-over-time" class="table-of-contents__link toc-highlight">10.9 Metric Evolution Over Time</a></li><li><a href="#1010-small-sample--intersectional-uncertainty-chart" class="table-of-contents__link toc-highlight">10.10 Small Sample / Intersectional Uncertainty Chart</a></li></ul></li><li><a href="#11-notes" class="table-of-contents__link toc-highlight"><strong>11 Notes</strong></a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/fairness-audit/docs/implementation-guide">Implementation Guide</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://stackoverflow.com/questions/tagged/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Stack Overflow<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://discordapp.com/invite/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">X<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/Herkata/fairness-audit" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2026 Fairness Audit Playbook. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>
