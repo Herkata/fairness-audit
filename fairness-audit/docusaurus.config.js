@@ -25,12 +25,12 @@ const config = {
   url: 'https://herkata.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/Fairness_playbook/',
+  baseUrl: '/fairness-audit/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
   organizationName: 'Herkata', // GitHub org/user name
-  projectName: 'Fairness_playbook', // GitHub repo name
+  projectName: 'fairness-audit', // GitHub repo name
   deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
@@ -53,7 +53,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Herkata/Fairness_playbook/tree/main/fairness-audit/',
+            'https://github.com/Herkata/fairness-audit/tree/main/',
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
@@ -66,7 +66,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/Herkata/Fairness_playbook/tree/main/fairness-audit/',
+            'https://github.com/Herkata/fairness-audit/tree/main/',
           remarkPlugins: [math],
           rehypePlugins: [katex],
           // Useful options to enforce blogging best practices
@@ -116,7 +116,7 @@ const config = {
             label: 'Sources and Plans',
           },
           {
-            href: 'https://github.com/Herkata/Fairness_playbook',
+            href: 'https://github.com/Herkata/fairness-audit',
             label: 'GitHub',
             position: 'right',
           },
@@ -130,7 +130,7 @@ const config = {
             items: [
               {
                 label: 'Implementation Guide',
-                to: '/implementation-guide',
+                to: '/docs/implementation-guide',
               },
             ],
           },
@@ -156,7 +156,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/Herkata/Fairness_playbook',
+                href: 'https://github.com/Herkata/fairness-audit',
               },
             ],
           },

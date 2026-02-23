@@ -42,7 +42,7 @@ const flowSteps = [
   {
     title: 'Reporting & Handoff',
     description: 'Assemble findings, decisions, and mitigations for leadership review.',
-    to: '/docs/comprehensive-metrics#visualization-and-reporting',
+    to: '/docs/reporting',
     type: 'report',
   },
 ];
