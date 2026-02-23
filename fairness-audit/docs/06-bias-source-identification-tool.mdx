@@ -1,0 +1,416 @@
+---
+sidebar_position: 6
+title: Bias Source Identification Tool
+slug: /bias-source-identification
+---
+
+import { PriorityTable, DetectNote } from '@site/src/components/ToolComponents';
+
+# Bias Source Identification Tool
+
+<div className="print-wrap">
+    <button
+        type="button"
+        className="print-btn"
+        onClick={() => window.print()}
+    >
+        <span aria-hidden="true" role="img" className="print-icon">💾</span>
+        <span>Save filled page as PDF</span>
+    </button>
+    <span className="print-tip">Use your browser's print dialog and choose "Save as PDF" to keep filled inputs.</span>
+</div>
+
+> Need definitions and examples? See [Bias Type Literature](/bias-type-literature).
+
+## **Bias Detection Methodology**
+
+<aside>
+
+### Step 1: Start with Historical Context
+
+Begin by reviewing the results of your **Historical Context Assessment**.
+
+Identify the bias patterns classified as **highest risk**, especially those tied to documented discrimination, structural inequities, or historically disadvantaged groups.
+
+These patterns define where your investigation should begin.
+
+---
+
+### Step 2: Align with Selected Fairness Definitions
+
+Next, revisit the **fairness definitions** you selected (e.g., Equal Opportunity, Demographic Parity, Calibration).
+
+Ask:
+
+- Which bias types directly undermine these fairness goals?
+- Which biases could cause violations of your primary fairness metric?
+
+This step ensures that detection efforts are not generic, but directly tied to your fairness commitments.
+
+---
+
+### Step 3: Prioritize High-Impact Bias Types
+
+Focus detection efforts on bias categories that:
+
+- 📚 Align with documented historical patterns
+- ⚠️ Pose a direct risk to your selected fairness definitions
+- 📊 Could materially affect system outcomes
+
+Biases that satisfy **both historical relevance and fairness impact** should receive highest priority.
+
+---
+
+### Step 4: Document Bias–Fairness Connections
+
+For each identified bias source:
+
+- Clearly reference the **historical pattern** it relates to
+- Explicitly state which **fairness definition** it threatens
+- Describe the potential impact on system outcomes
+- Record planned detection or mitigation actions
+
+This documentation ensures transparency, traceability, and audit readiness.
+
+</aside>
+
+### Detecting Bias Types
+
+#### Detecting Historical Bias
+
+<DetectNote id="historical-bias" label="Notes for Historical Bias">
+
+##### Using Historical Context Assessment Tool:
+
+- Extract documented discrimination patterns from the Historical Context Assessment results.
+- Identify specific historical exclusion mechanisms relevant to your domain.
+- Reference historical risk classification to prioritize investigation.
+- Identify legacy decision rules that may still be implicitly embedded in data.
+- Map historical structural inequities to current feature space.
+
+##### Quantitative Techniques:
+
+- Compare outcome distributions across historically disadvantaged groups.
+- Test whether approval/denial rates replicate historical disparities.
+- Analyze correlation between predictions and historically discriminatory features.
+- Conduct disparity ratio analysis against historical benchmarks.
+- Perform trend analysis comparing historical and current disparity levels.
+
+</DetectNote>
+
+#### Detecting Representation Bias
+
+<DetectNote id="representation-bias" label="Notes for Representation Bias">
+
+##### Using Historical Context Assessment Tool:
+
+- Identify groups historically underrepresented in the domain.
+- Establish population benchmarks using historical and demographic data.
+- Flag historically marginalized groups for focused representation checks.
+
+##### Quantitative Techniques:
+
+- Compare dataset composition to population-level benchmarks.
+- Measure sample size ratios across protected groups.
+- Analyze missingness patterns correlated with protected attributes.
+- Assess data completeness and feature coverage across groups.
+- Conduct subgroup power analysis to detect insufficient representation.
+
+</DetectNote>
+
+#### Detecting Measurement Bias
+
+<DetectNote id="measurement-bias" label="Notes for Measurement Bias">
+
+##### Using Fairness Definition Selection Tool:
+
+- Align bias checks with selected fairness definitions.
+- For group fairness metrics: test for systematic measurement differences.
+- For individual fairness metrics: test proxy consistency across similar individuals.
+
+##### Quantitative Techniques:
+
+- Evaluate proxy variable accuracy across groups.
+- Conduct label quality audits across demographic categories.
+- Analyze feature scaling or encoding inconsistencies.
+- Test measurement error rates by subgroup.
+- Measure inter-annotator agreement across protected attributes.
+
+</DetectNote>
+
+#### Detecting Aggregation Bias
+
+<DetectNote id="aggregation-bias" label="Notes for Aggregation Bias">
+
+##### Using Historical Context Assessment Tool:
+
+- Identify heterogeneous subpopulations within protected groups.
+- Flag populations with historically distinct outcome patterns.
+- Review whether subgroup-specific mechanisms exist.
+
+##### Quantitative Techniques:
+
+- Train subgroup-specific models and compare performance.
+- Measure performance metrics disaggregated by subgroup.
+- Conduct interaction effect analysis.
+- Perform cluster-based subgroup discovery.
+- Compare feature importance rankings across subpopulations.
+
+</DetectNote>
+
+#### Detecting Learning Bias
+
+<DetectNote id="learning-bias" label="Notes for Learning Bias">
+
+##### Using Fairness Definition Selection Tool:
+
+- Assess whether optimization objectives conflict with fairness definitions.
+- Review whether fairness constraints were included during training.
+- Identify whether regularization penalizes minority patterns disproportionately.
+
+##### Quantitative Techniques:
+
+- Compare loss contributions across groups.
+- Analyze gradient magnitudes by subgroup.
+- Measure overfitting levels per demographic segment.
+- Conduct fairness-aware ablation studies.
+- Track model behavior under different class imbalance treatments.
+
+</DetectNote>
+
+#### Detecting Evaluation Bias
+
+<DetectNote id="evaluation-bias" label="Notes for Evaluation Bias">
+
+##### Using Historical Context Assessment Tool:
+
+- Ensure evaluation datasets reflect real-world demographic composition.
+- Verify subgroup-level fairness metrics are included in reporting.
+
+##### Quantitative Techniques:
+
+- Disaggregate all performance metrics by protected attribute.
+- Compare test-set demographics to deployment demographics.
+- Conduct out-of-distribution testing by subgroup.
+- Evaluate fairness metrics under different thresholds.
+- Perform stress testing on minority subgroup samples.
+
+</DetectNote>
+
+#### Detecting Deployment Bias
+
+<DetectNote id="deployment-bias" label="Notes for Deployment Bias">
+
+##### Using Organizational Review:
+
+- Audit post-deployment workflows.
+- Review override practices and human intervention patterns.
+- Assess whether fairness monitoring exists in production.
+
+##### Quantitative Techniques:
+
+- Monitor performance drift across groups over time.
+- Analyze override frequency by protected attribute.
+- Track approval rate changes post-deployment.
+- Measure disparity trends longitudinally.
+- Compare training vs deployment data distributions.
+
+</DetectNote>
+
+#### Detecting Human–AI Interaction Bias
+
+<DetectNote id="human-ai-interaction-bias" label="Notes for Human–AI Interaction Bias">
+
+##### Using Behavioral Monitoring:
+
+- Analyze how different groups interact with the system.
+- Identify usage disparities across demographic segments.
+- Document adaptation behaviors.
+
+##### Quantitative Techniques:
+
+- Compare interaction patterns across groups.
+- Track changes in input distributions over time.
+- Measure performance before and after repeated usage.
+- Analyze clickstream or form completion behavior by subgroup.
+- Conduct A/B testing for interface effects.
+
+</DetectNote>
+
+#### Detecting Infrastructure & Resource Disparity Bias
+
+<DetectNote id="infrastructure-resource-bias" label="Notes for Infrastructure & Resource Disparity Bias">
+
+##### Using Contextual Assessment:
+
+- Identify technological access disparities.
+- Map digital literacy assumptions in the system design.
+- Evaluate whether system usability varies across groups.
+
+##### Quantitative Techniques:
+
+- Analyze device type distribution across applicants.
+- Measure completion rates by socioeconomic proxy.
+- Compare error rates across internet bandwidth tiers.
+- Track abandonment rates by demographic segment.
+- Assess latency-related performance impacts.
+
+</DetectNote>
+
+#### Detecting Organizational Implementation Bias
+
+<DetectNote id="organizational-implementation-bias" label="Notes for Organizational Implementation Bias">
+
+##### Using Governance Review:
+
+- Audit accountability structures.
+- Review incentive systems.
+- Assess fairness oversight procedures.
+
+##### Quantitative Techniques:
+
+- Compare override decisions across demographic groups.
+- Measure policy compliance rates.
+- Track fairness metric monitoring frequency.
+- Analyze escalation patterns by subgroup.
+- Evaluate fairness metric drift pre- and post-policy changes.
+
+</DetectNote>
+
+#### Detecting Direct Feedback Loop Bias
+
+<DetectNote id="direct-feedback-bias" label="Notes for Direct Feedback Loop Bias">
+
+##### Using Temporal Analysis:
+
+- Identify whether outputs directly affect future inputs.
+- Map data collection dependencies on past decisions.
+
+##### Quantitative Techniques:
+
+- Conduct longitudinal disparity analysis.
+- Measure diversity decline over repeated cycles.
+- Analyze cumulative exposure patterns.
+- Compare first-time vs repeat applicant outcomes.
+- Perform simulation of multi-period feedback effects.
+
+</DetectNote>
+
+#### Detecting Indirect Feedback Loop Bias
+
+<DetectNote id="indirect-feedback-bias" label="Notes for Indirect Feedback Loop Bias">
+
+##### Using Ecosystem Mapping:
+
+- Identify external processes influenced by model decisions.
+- Track institutional adaptations to system outputs.
+
+##### Quantitative Techniques:
+
+- Analyze shifts in applicant pool composition over time.
+- Compare pre- and post-deployment applicant demographics.
+- Conduct cohort tracking.
+- Model long-term distribution changes.
+- Measure participation drop-off rates by subgroup.
+
+</DetectNote>
+
+#### Detecting User-Driven Feedback Bias
+
+<DetectNote id="user-driven-feedback-bias" label="Notes for User-Driven Feedback Bias">
+
+##### Using Interaction Monitoring:
+
+- Identify strategic behavior changes.
+- Monitor emerging input pattern homogenization.
+
+##### Quantitative Techniques:
+
+- Detect distribution shifts in high-weight features.
+- Analyze abnormal clustering in feature values.
+- Compare early vs late adopter behavior.
+- Track subgroup-specific input manipulation patterns.
+- Conduct adversarial robustness testing.
+
+</DetectNote>
+
+#### Detecting System-Driven Feedback Bias
+
+<DetectNote id="system-driven-feedback-bias" label="Notes for System-Driven Feedback Bias">
+
+##### Using Model Lifecycle Governance:
+
+- Audit retraining frequency and fairness re-application.
+- Ensure fairness constraints persist across updates.
+
+##### Quantitative Techniques:
+
+- Compare fairness metrics before and after retraining.
+- Measure subgroup performance drift.
+- Conduct fairness regression analysis over time.
+- Track feature importance evolution longitudinally.
+- Perform periodic counterfactual fairness checks.
+
+</DetectNote>
+
+## **Prioritization Framework**
+
+### Assessment Dimensions
+
+Each identified issue should be evaluated across the following standardized dimensions using a **1–5 scale**, where higher values indicate greater impact or relevance.
+
+**Severity**
+
+The magnitude of potential harm if the issue remains unresolved.
+
+**Scope**
+
+The extent to which decisions, outcomes, or individuals are affected.
+
+**Persistence**
+
+The likelihood that effects will accumulate or reinforce themselves over time (e.g., through feedback mechanisms).
+
+**Intervention Feasibility**
+
+The relative difficulty or ease of mitigating or resolving the issue.
+
+**Historical Alignment**
+
+The degree to which the issue aligns with previously identified structural or historical patterns.
+
+
+### Priority Calculation
+
+To determine overall prioritization, calculate a weighted score using the following formula:
+
+$$
+\text{Priority Score} = (\text{Severity} \times 0.3) \\
++ (\text{Scope} \times 0.2) \\
++ (\text{Persistence} \times 0.2) \\
++ (\text{Historical Alignment} \times 0.2) \\
++ (\text{Intervention Feasibility} \times 0.1)
+$$
+
+This weighting emphasizes potential harm while still accounting for breadth, long-term effects, contextual relevance, and practical constraints.
+
+
+### Priority Categories
+
+These categories support structured decision-making and resource allocation
+- **High Priority:** Score ≥ 4.0
+- **Medium Priority:** 3.0 ≤ Score < 4.0
+- **Low Priority:** Score < 3.0
+
+### Fillable Priority Table (Auto-Calculated)
+
+<PriorityTable />
+
+### Sources / References
+
+<div className="question-block">
+    <strong>Sources and Evidence</strong>
+    <p><em>Record data sources, audits, regulations, and research cited in this assessment.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Sources and evidence" />
+</div>
+

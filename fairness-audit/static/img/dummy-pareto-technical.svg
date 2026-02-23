@@ -1,0 +1,25 @@
+<svg width="420" height="260" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Pareto of technical metrics demo</title>
+  <desc id="desc">Clean Pareto for technical metrics with a cumulative line.</desc>
+  <rect width="420" height="260" fill="#0b1220"/>
+  <text x="20" y="30" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="13">Technical metrics contribution</text>
+  <line x1="60" y1="210" x2="360" y2="210" stroke="#6c7380" stroke-width="2"/>
+  <g fill="#5fe3a1">
+    <rect x="70" y="158" width="34" height="52" rx="4"/>
+    <rect x="120" y="138" width="34" height="72" rx="4"/>
+    <rect x="170" y="120" width="34" height="90" rx="4"/>
+    <rect x="220" y="102" width="34" height="108" rx="4"/>
+    <rect x="270" y="84" width="34" height="126" rx="4"/>
+  </g>
+  <polyline points="87,158 137,136 187,114 237,96 287,78 337,70" fill="none" stroke="#f5a524" stroke-width="3"/>
+  <g fill="#c7d2e0" font-family="Arial, sans-serif" font-size="11">
+    <text x="74" y="232">Acc</text>
+    <text x="124" y="232">AUC</text>
+    <text x="174" y="232">F1</text>
+    <text x="223" y="232">Calib</text>
+    <text x="272" y="232">Drift</text>
+  </g>
+  <rect x="300" y="55" width="110" height="60" fill="#111a2c" stroke="#1f2b3f" stroke-width="1" rx="10"/>
+  <text x="310" y="77" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="11">Cumulative: 75%</text>
+  <text x="310" y="95" fill="#f5a524" font-family="Arial, sans-serif" font-size="11">Top 2 = 45%</text>
+</svg>

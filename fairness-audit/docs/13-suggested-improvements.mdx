@@ -1,0 +1,68 @@
+---
+sidebar_position: 12
+title: Suggested Improvements
+slug: /suggested-improvements
+id: suggested-improvements
+---
+import React, { useState } from 'react';
+
+# Suggested Improvements
+
+Use this page to capture improvements and attach a quick local preview of your own images.
+
+## Further ideas to consider
+
+- Account creation with optional SSO so teams can save work and manage access.
+- Sharing: export a read-only link or PDF for stakeholders; add inline comments/mentions.
+- Embed visuals/snippets back into existing docs (MDX include or copyable code blocks).
+- Retain progress on started/unfinished fillable tools (local storage or per-user workspace sync).
+- Image upload: accept drops, show preview, and provide the final path to paste into docs/static assets.
+- Link literature and implementation guide sections to each section in the fillable tools for more practical access.
+
+<div className="note-block">
+  <label className="note-label" htmlFor="suggestions">Suggestions</label>
+  <textarea id="suggestions" rows={4} className="note-area" aria-label="Suggested improvements" placeholder="What should we adjust, add, or clarify?" />
+</div>
+
+<ImageUpload />
+
+## How to persist images in the docs
+
+- Place your image files in `static/img/` (or a subfolder) so they are served by the site.
+- Reference them from any doc using `<img src="/img/your-file.png" alt="description" />`.
+- For per-page assets, you can also store images alongside the doc and use a relative path (e.g., `./assets/your-file.png`).
+- The upload control below is for local preview only; it does not save files to the site.
+
+export function ImageUpload() {
+  const [preview, setPreview] = useState(null);
+  const [name, setName] = useState('');
+
+  const onFileChange = (event) => {
+    const file = event.target.files && event.target.files[0];
+    if (!file) {
+      setPreview(null);
+      setName('');
+      return;
+    }
+    setName(file.name);
+    const reader = new FileReader();
+    reader.onload = () => setPreview(reader.result);
+    reader.readAsDataURL(file);
+  };
+
+  return (
+    <div className="note-block">
+      <label className="note-label" htmlFor="improvement-upload">Upload image (local preview only)</label>
+      <input id="improvement-upload" type="file" accept="image/*" onChange={onFileChange} />
+      {name ? <p className="upload-meta">Selected: {name}</p> : null}
+      {preview ? (
+        <img
+          src={preview}
+          alt="Uploaded preview"
+          style={{ maxWidth: '480px', width: '100%', display: 'block', margin: '12px 0' }}
+        />
+      ) : null}
+      <p className="upload-tip">Files are not stored by this site. Copy images into static/img to include them in the docs.</p>
+    </div>
+  );
+}

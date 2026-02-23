@@ -1,0 +1,27 @@
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  padding: 1rem 0 2rem;
+}
+
+.featureSvg {
+  height: 200px;
+  width: 200px;
+}
+
+.featureCard {
+  background: #2a2c39;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  padding: 1.25rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.featureTitle {
+  color: #f0f2fb;
+}
+
+.featureDescription {
+  color: #c3c8d9;
+}

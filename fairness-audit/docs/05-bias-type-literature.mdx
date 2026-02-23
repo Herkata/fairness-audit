@@ -1,0 +1,142 @@
+---
+title: Bias Type Literature
+sidebar_position: 5
+slug: /bias-type-literature
+---
+
+# Bias Type Literature
+
+Reference taxonomy for common bias sources with definitions, indicators, and examples.
+
+> Need to investigate and log findings? Use the [Bias Source Identification Tool](/bias-source-identification).
+
+## **1 Data-based Bias**
+
+### 1.1 Historical Bias
+
+- **Definition:** Bias resulting from pre-existing social inequities, regardless of sampling or feature selection.
+- **Indicators:**
+    - Target variables reflecting historical discrimination.
+    - Problematic correlations that mirror societal inequities.
+    - Patterns that align with known historical discrimination.
+> ***Example:*** A hiring algorithm trained on historical hiring decisions may perpetuate patterns of gender discrimination in technical roles.
+
+### 1.2 Representation Bias
+
+- **Definition:** Bias arising from how populations are sampled and measured in training data.
+- **Indicators:**
+    - Demographic imbalances compared to target population
+    - Quality disparities across demographic groups
+    - Systematic measurement differences
+> ***Example:*** A medical diagnostic system trained primarily on data from young adult males may perform poorly for elderly female patients.
+
+### 1.3 Measurement Bias
+
+- **Definition:** Bias arising from how attributes are measured, proxied, or operationalized.
+- **Indicators:**
+    - Different measurement approaches across groups
+    - Proxy variables with varying accuracy across populations
+    - Inconsistent label quality across demographics
+> ***Example:*** Using standardized test scores as a proxy for aptitude may disadvantage groups with less access to test preparation resources.
+
+## **2 Methodology Bias**
+
+### 2.1 Aggregation Bias
+
+- **Definition:** Bias arising from combining distinct populations that may have different relationships between features and outcomes.
+- **Indicators:**
+    - One-size-fits-all models for heterogeneous populations
+    - Features with different predictive relationships across groups
+    - Unexplained performance disparities across subgroups
+> ***Example:*** A credit scoring model might not account for different cultural approaches to credit usage, creating disparities across ethnic groups.
+
+### 2.2 Learning Bias
+
+- **Definition:** Bias arising from modeling choices that amplify or create disparities.
+- **Indicators:**
+    - Algorithms that overfit majority patterns
+    - Regularization approaches that penalize minority patterns
+    - Optimization objectives misaligned with fairness goals
+> ***Example:*** A complex model might learn spurious correlations between protected attributes and outcomes that don't represent causal relationships.
+
+### 2.3 Evaluation Bias
+
+- **Definition:** Bias arising from testing procedures that don't represent real-world performance or fairness.
+- **Indicators:**
+    - Test datasets with different characteristics than deployment contexts
+    - Metrics that don't capture relevant fairness dimensions
+    - Insufficient disaggregation of performance across groups
+> ***Example:*** Evaluating a facial recognition system on a test set that doesn't include diverse skin tones will mask potential performance disparities in deployment.
+
+## **3 Circumstantial Bias**
+
+### 3.1 Deployment Bias
+
+- **Definition:** Bias arising from how systems are implemented and used in practice.
+- **Indicators:**
+    - Context shifts between training and deployment
+    - User interactions that reinforce biases
+    - Feedback loops that amplify initial disparities
+> ***Example:*** A recommendation system might create filter bubbles that limit exposure diversity based on initial demographic patterns.
+
+### 3.2 Infrastructure and Resource Disparity Bias
+
+- **Definition:** Bias arising from unequal access to technological infrastructure, digital literacy, or resources required to benefit from AI systems.
+- **Indicators:**
+    - Unequal access to required hardware or internet connectivity
+    - Differences in digital literacy across populations
+    - System performance depending on device quality or data availability
+    - Disparities in adoption rates across socioeconomic groups
+> ***Example:*** An AI-powered loan application system may be equally fair in design, but individuals with limited internet access or lower digital literacy may struggle to complete applications accurately, leading to unequal access to credit.
+
+### 3.3 Organizational Implementation Bias
+
+- **Definition:** Bias arising from how an AI system is implemented, governed, and integrated within organizational processes and incentive structures.
+- **Indicators:**
+    - Lack of accountability or fairness monitoring after deployment
+    - Incentive systems prioritizing efficiency over equity
+    - Inconsistent override policies across decision-makers
+    - Absence of diverse perspectives in governance processes
+> ***Example:*** A loan approval model designed with fairness safeguards may still produce discriminatory outcomes if organizational policies encourage aggressive cost-cutting or allow discretionary overrides that disproportionately disadvantage certain groups.
+
+## **4 Bias-feeding Processes**
+
+### 4.1 Direct Feedback Loop
+
+- **Definition:** Bias arising when a system’s outputs directly shape future inputs within the same decision pipeline, reinforcing prior predictions or outcomes.
+- **Indicators:**
+    - Repeated reinforcement of earlier decisions
+    - Declining diversity in outputs over time
+    - Increasing confidence in patterns that originated from initial model behavior
+    - Self-reinforcing approval or rejection cycles
+> ***Example:*** A loan approval system that approves applicants from a specific demographic more frequently will collect more repayment data from that group. Over time, the model may become increasingly confident about that group while remaining uncertain about underrepresented groups, reinforcing disparities.
+
+### 4.2 Indirect Feedback Loop
+
+- **Definition:** Bias arising when a system’s outputs influence future inputs through intermediate processes, institutions, or external behaviors.
+- **Indicators:**
+    - Downstream behavioral changes affecting future data
+    - Institutional processes shaped by prior model outputs
+    - Long-term shifts in applicant pools
+    - Indirect amplification of initial disparities
+> ***Example:*** If certain applicants are consistently denied loans, they may stop applying altogether or seek alternative financial services. Over time, the applicant pool shifts, and the model is trained on increasingly selective data, reinforcing exclusion patterns.
+
+### 4.3 User-Driven Feedback Bias
+
+- **Definition:** Bias emerging from users adapting their behavior strategically or unintentionally in response to an AI system’s decision logic.
+- **Indicators:**
+    - Applicants modifying inputs to optimize approval chances
+    - Use of learned “trigger” features that influence predictions
+    - Distribution shifts in input data over time
+    - Increased homogeneity in application patterns
+> ***Example:*** Loan applicants may learn that certain employment types or reported income structures increase approval likelihood and adjust their reporting behavior accordingly, distorting input distributions and potentially disadvantaging less informed applicants.
+
+### 4.4 System-Driven Feedback Bias
+
+- **Definition:** Bias arising when an AI system autonomously updates or adapts based on new data, potentially amplifying existing disparities without explicit user intervention.
+- **Indicators:**
+    - Performance drift across demographic groups over time
+    - Gradual changes in decision thresholds through automated retraining
+    - Increasing disparities following continuous learning updates
+    - Lack of periodic fairness re-evaluation after model updates
+> ***Example:*** A continuously retrained loan risk model may increasingly weight features correlated with protected attributes as new data accumulates, leading to progressively larger disparities if fairness constraints are not re-applied during retraining.

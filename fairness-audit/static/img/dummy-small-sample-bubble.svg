@@ -1,0 +1,19 @@
+<svg width="420" height="260" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Small sample bubble demo</title>
+  <desc id="desc">Bubble plot showing disparity (y) and sample size (bubble size).</desc>
+  <rect width="420" height="260" fill="#0b1220"/>
+  <text x="22" y="32" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="13">Disparity vs sample size</text>
+  <line x1="70" y1="210" x2="350" y2="210" stroke="#6c7380" stroke-width="2"/>
+  <line x1="70" y1="210" x2="70" y2="60" stroke="#6c7380" stroke-width="2"/>
+  <g fill="#4da3ff" fill-opacity="0.8" stroke="#0b1220" stroke-width="1.5">
+    <circle cx="120" cy="176" r="12"/>
+    <circle cx="180" cy="152" r="10"/>
+    <circle cx="240" cy="126" r="16"/>
+    <circle cx="300" cy="98" r="12"/>
+  </g>
+  <text x="300" y="226" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="11">Sample size →</text>
+  <text x="22" y="70" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="11">Disparity ↑</text>
+  <rect x="270" y="50" width="130" height="60" fill="#111a2c" stroke="#1f2b3f" stroke-width="1" rx="10"/>
+  <text x="282" y="70" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="11">Size = N</text>
+  <text x="282" y="88" fill="#5fe3a1" font-family="Arial, sans-serif" font-size="11">Color = stability</text>
+</svg>

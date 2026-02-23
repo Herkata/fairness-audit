@@ -1,0 +1,280 @@
+---
+sidebar_position: 2
+title: Historical Context Assessment Tool
+slug: /historical-context-assessment
+---
+import { RiskMatrix } from '@site/src/components/ToolComponents';
+
+# Historical Context Assessment Tool
+
+<div className="print-wrap">
+  <button type="button" className="print-btn" onClick={() => window.print()}>
+    <span aria-hidden="true" role="img" className="print-icon">💾</span>
+    <span>Save filled page as PDF</span>
+  </button>
+  <span className="print-tip">Use your browser's print dialog and choose "Save as PDF" to keep filled inputs.</span>
+</div>
+
+## **Overview and Guidance**
+
+This tool guides you through a structured assessment of the historical context relevant to your AI application. By systematically examining the domain, data, features, and model choices through the lens of documented patterns of discrimination, you can identify potential risks and vulnerabilities that may arise from replicating or amplifying these patterns.
+
+## **Questionnaire Sections**
+
+### 1. Domain
+
+<div className="question-block">
+  <strong>What domain is your application aimed at?</strong>
+  <p><em>e.g. Healthcare, Jurisdiction, Advertisement, Production</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: domain" />
+</div>
+
+<div className="question-block">
+  <strong>How old is this branch, and what influenced its development throughout history?</strong>
+  <p><em>e.g. Industrial monopolies, Political directives, Legislation</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: history" />
+</div>
+
+<div className="question-block">
+  <strong>Which kinds of discrimination have been recorded in this domain?</strong>
+  <p><em>e.g. Black women in space research, ageism in hiring, women earning less</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: discrimination" />
+</div>
+
+<div className="question-block">
+  <strong>Is explainability an important factor in your field?</strong>
+  <p><em>e.g. Loans, recidivism, CT scans</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: explainability" />
+</div>
+
+### 2. Application Concept
+
+<div className="question-block">
+  <strong>What is your application’s function/goal?</strong>
+  <p><em>e.g. Scoring, categorization, risk assessment</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: goal" />
+</div>
+
+<div className="question-block">
+  <strong>Is there an existing, comparable solution that either leads by example or illustrates practices to avoid?</strong>
+  <p><em>e.g. Facial recognition bias against Black women, image generation showing only white persons</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: comparable" />
+</div>
+
+<div className="question-block">
+  <strong>Based on the information gathered above, what are your application’s vulnerabilities or weak spots?</strong>
+  <p><em>e.g. Bias, amplifying implicit discrimination, insufficient data</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: vulnerabilities" />
+</div>
+
+### 3. Data
+
+<div className="question-block">
+  <strong>What is the data source you plan to use?</strong>
+  <p><em>e.g. Public, limited access, owned by your company</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: data source" />
+</div>
+
+<div className="question-block">
+  <strong>Is the data source well-documented?</strong>
+  <p><em>Are the features, schema, and collection process documented?</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: documentation" />
+</div>
+
+<div className="question-block">
+  <strong>Has the data been collected ethically and legally?</strong>
+  <p><em>Is the data from a legitimate source? Was there a leak or unethical practice?</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: ethics" />
+</div>
+
+<div className="question-block">
+  <strong>Is the data representative of the population it was collected from?</strong>
+  <p><em>Does the collected data represent the whole collection group accurately? e.g. A university poll considering students and staff</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: representativeness collected" />
+</div>
+
+<div className="question-block">
+  <strong>Is the data representative of the population it is going to make predictions on?</strong>
+  <p><em>Where is the application going to be used? Are the target group and collection group comparable?</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: representativeness target" />
+</div>
+
+<div className="question-block">
+  <strong>Which variables have been measured?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: variables" />
+</div>
+
+<div className="question-block">
+  <strong>What kinds of scales have been applied?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: scales" />
+</div>
+
+<div className="question-block">
+  <strong>Have data collection practices changed since the data were recorded?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: collection changes" />
+</div>
+
+### 4. Features
+
+<div className="question-block">
+  <strong>Which features are included in training, and why?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: features" />
+</div>
+
+<div className="question-block">
+  <strong>Define which attributes are/should be protected to avoid discrimination.</strong>
+  <p><em>e.g. Race, gender, social status</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: protected attributes" />
+</div>
+
+<div className="question-block">
+  <strong>Run correlation analysis to identify proxies for protected attributes.</strong>
+  <p><em>e.g. Address for social status, name for ethnicity</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: proxies" />
+</div>
+
+<div className="question-block">
+  <strong>Does any feature definition disadvantage certain groups?</strong>
+  <p><em>e.g. Physical status, leadership fitness, employment continuity</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: disadvantaged groups" />
+</div>
+
+<div className="question-block question-block--md">
+  <strong>Does the encoding of attributes disadvantage certain groups?</strong>
+  <p><em>e.g. 0, 1, 2 for male, female, other</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: encoding" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Are categorization practices discriminatory or derogatory?</strong>
+  <p><em>e.g. Limited gender options, inaccurate race options</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: categorization" />
+</div>
+
+### 5. Intersectionality Findings
+
+<div className="question-block question-block--sm">
+  <strong>Are there intersectional subgroups that require further exploration based on historical context?</strong>
+  <p><em>e.g. Women of color in scientific fields, low-income Indigenous communities in political representation, women of childbearing age in hiring</em></p>
+  <textarea rows={3} className="note-area" aria-label="Notes: intersectional" />
+</div>
+
+### 6. Model Selection
+
+<div className="question-block question-block--sm">
+  <strong>What priorities were set in historical applications with the same goal?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: historical priorities" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Which models achieved these goals, and what downsides did they have?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: model downsides" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Which technical performance metrics will you use to choose the final model or ensemble, and why?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: performance metrics" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Is your model explainable? Which features contribute to the results and how?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: explainability" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Which factors are used in hyperparameter tuning?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: hyperparameters" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Do these factors increase the influence of protected variables?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: influence protected" />
+</div>
+
+### 7. Evaluation
+
+<div className="question-block question-block--sm">
+  <strong>Define technical performance metrics.</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: tech metrics" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Define what the confusion matrix elements mean in your case: TN, TP, FN, FP.</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: confusion matrix" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Evaluate severity and set priorities to choose which metric to maximize.</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: severity" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Introduce fairness metrics applicable to your solution.</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: fairness metrics" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Document your choice of fairness metric and reasoning.</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: metric reasoning" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Describe the fairness–performance trade-off.</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: tradeoff" />
+</div>
+
+<div className="question-block question-block--sm">
+  <strong>Could your solution cause potential harm?</strong>
+  <textarea rows={3} className="note-area" aria-label="Notes: harm" />
+</div>
+
+## **Risk Classification Matrix**
+
+> This matrix assesses risks from historically documented patterns of discrimination relevant to an internal loan application system. In line with the **EU AI Act**, particular attention is given to risks affecting **access to credit**, classified as a **high-risk use case** due to its impact on economic opportunity and fundamental rights.
+
+### Matrix Dimensions
+
+**Historical Pattern**
+
+A well-documented historical pattern of discrimination or exclusion, supported by legal, social, or empirical evidence, particularly in financial and credit-related contexts.
+
+**Impact Severity** – Potential harm if the historical pattern is reproduced by the system:
+
+- **High (3):** Affects fundamental rights or critical life outcomes (e.g. access to housing, credit, economic stability)
+- **Medium (2):** Produces significant inequality in access to financial resources or economic opportunity
+- **Low (1):** Leads to differential treatment with limited material impact
+
+**Occurrence Likelihood** – Probability that the pattern may manifest in AI-based loan systems:
+
+- **High (3):** Frequently observed in historical or contemporary credit systems
+- **Medium (2):** Documented but context-dependent
+- **Low (1):** Rare or indirect
+
+**System Relevance** – Applicability to the internal loan application system:
+
+- **High (3):** Directly related to creditworthiness assessment, risk scoring, or approval decisions
+- **Medium (2):** Indirectly influences decision-support components
+- **Low (1):** Peripheral relevance
+
+**Risk Priority Score**
+
+Calculated as: **Impact Severity + Occurrence Likelihood + System Relevance**
+
+### Priority Interpretation
+
+- **7–9:** Critical — requires immediate mitigation before deployment
+- **5–6:** High — mitigation required and ongoing monitoring
+- **3–4:** Medium — monitoring and periodic review required
+
+### Fillable Risk Matrix
+
+<RiskMatrix />
+
+### Sources / References
+
+<div className="question-block">
+  <strong>Sources and Evidence</strong>
+  <p><em>List datasets, regulations, reports, or research cited on this page.</em></p>
+  <textarea rows={3} className="note-area" aria-label="Sources and evidence" />
+</div>
+

@@ -1,0 +1,30 @@
+<svg width="420" height="260" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Fairness disparity demo</title>
+  <desc id="desc">Clean grouped bars with whiskers and a parity threshold line.</desc>
+  <rect width="420" height="260" fill="#0b1220"/>
+  <line x1="60" y1="210" x2="360" y2="210" stroke="#6c7380" stroke-width="2"/>
+  <line x1="60" y1="130" x2="360" y2="130" stroke="#6c7380" stroke-width="1" stroke-dasharray="6 6"/>
+  <text x="22" y="134" fill="#9fb3c8" font-family="Arial, sans-serif" font-size="11">Parity</text>
+  <g stroke="#cbd5e1" stroke-width="2">
+    <line x1="110" y1="150" x2="110" y2="192"/>
+    <line x1="190" y1="165" x2="190" y2="206"/>
+    <line x1="270" y1="118" x2="270" y2="185"/>
+  </g>
+  <g fill="#4da3ff">
+    <rect x="88" y="170" width="44" height="40" rx="5"/>
+    <rect x="168" y="184" width="44" height="26" rx="5"/>
+    <rect x="248" y="146" width="44" height="64" rx="5"/>
+  </g>
+  <g fill="#5ee3a1">
+    <rect x="118" y="158" width="44" height="52" rx="5" opacity="0.85"/>
+    <rect x="198" y="174" width="44" height="38" rx="5" opacity="0.85"/>
+    <rect x="278" y="126" width="44" height="86" rx="5" opacity="0.85"/>
+  </g>
+  <text x="92" y="232" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="12">Group A</text>
+  <text x="172" y="232" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="12">Group B</text>
+  <text x="252" y="232" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="12">Group C</text>
+  <rect x="285" y="34" width="120" height="70" fill="#111a2c" stroke="#1f2b3f" stroke-width="1" rx="10"/>
+  <text x="297" y="56" fill="#c7d2e0" font-family="Arial, sans-serif" font-size="11">Metric: Selection rate</text>
+  <text x="297" y="72" fill="#4da3ff" font-family="Arial, sans-serif" font-size="11">Gap vs parity: -8%</text>
+  <text x="297" y="88" fill="#5ee3a1" font-family="Arial, sans-serif" font-size="11">CI: ±3%</text>
+</svg>

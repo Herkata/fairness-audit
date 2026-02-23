@@ -1,0 +1,45 @@
+<svg width="420" height="260" viewBox="0 0 420 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Intersectional disparity demo heatmap</title>
+  <desc id="desc">Placeholder heatmap showing disparities across intersectional groups.</desc>
+  <rect width="420" height="260" fill="#0c1116"/>
+  <text x="20" y="30" fill="#9fb3c8" font-family="Arial, sans-serif" font-size="13">Disparity score by subgroup</text>
+  <g transform="translate(90 60)">
+    <g fill="#223040">
+      <rect x="0" y="0" width="260" height="140" rx="8"/>
+    </g>
+    <g stroke="#0c1116" stroke-width="2">
+      <rect x="10" y="10" width="60" height="40" fill="#1f8ffd"/>
+      <rect x="80" y="10" width="60" height="40" fill="#36cfc9"/>
+      <rect x="150" y="10" width="60" height="40" fill="#4ade80"/>
+      <rect x="220" y="10" width="60" height="40" fill="#f5a524"/>
+
+      <rect x="10" y="60" width="60" height="40" fill="#1c5c9e"/>
+      <rect x="80" y="60" width="60" height="40" fill="#1f8ffd"/>
+      <rect x="150" y="60" width="60" height="40" fill="#f97316"/>
+      <rect x="220" y="60" width="60" height="40" fill="#f43f5e"/>
+
+      <rect x="10" y="110" width="60" height="40" fill="#1a3f6f"/>
+      <rect x="80" y="110" width="60" height="40" fill="#1c5c9e"/>
+      <rect x="150" y="110" width="60" height="40" fill="#ef4444"/>
+      <rect x="220" y="110" width="60" height="40" fill="#b91c1c"/>
+    </g>
+    <g fill="#9fb3c8" font-family="Arial, sans-serif" font-size="11">
+      <text x="24" y="95">Group A</text>
+      <text x="93" y="95">Group B</text>
+      <text x="163" y="95">Group C</text>
+      <text x="233" y="95">Group D</text>
+
+      <text x="-60" y="35">F</text>
+      <text x="-60" y="85">M</text>
+      <text x="-60" y="135">NB</text>
+    </g>
+  </g>
+  <g transform="translate(20 220)" fill="#9fb3c8" font-family="Arial, sans-serif" font-size="11">
+    <rect x="0" y="-12" width="12" height="12" fill="#4ade80" stroke="#111723" stroke-width="1" rx="2"/> 
+    <text x="18" y="-2">Low disparity</text>
+    <rect x="100" y="-12" width="12" height="12" fill="#f5a524" stroke="#111723" stroke-width="1" rx="2"/>
+    <text x="118" y="-2">Medium</text>
+    <rect x="190" y="-12" width="12" height="12" fill="#ef4444" stroke="#111723" stroke-width="1" rx="2"/>
+    <text x="208" y="-2">High</text>
+  </g>
+</svg>

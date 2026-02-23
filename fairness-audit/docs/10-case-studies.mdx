@@ -1,0 +1,295 @@
+---
+title: Case Study
+sidebar_position: 10
+slug: /case-studies
+---
+
+# Case Study — Loan Application System
+
+Realistic walkthrough demonstrating how each tool applies to an internal loan application system.
+
+## **Historical Context Assessment Tool**
+
+### 1 Scenario
+
+- **Objective:** Document historical inequities before modeling.
+- **Signals reviewed:** Prior redlining cases, disparate denial rates by neighborhood, gender-based exclusion patterns, age-based underwriting policies.
+
+### 2 Output
+
+- **Risk summary:** Structural exclusion confirmed for women, older applicants, and specific postal codes.
+- **Protected attributes:** Gender, age, nationality/ethnicity (where lawful); geography treated as high-risk proxy.
+- **Mandates:** Require demographic parity monitoring; prohibit direct use of proxy geographies without justification; trigger fairness review for any threshold tuning.
+
+## **Fairness Definition Selection Tool**
+
+### 1 Application Overview
+
+- **System description:** Approves or declines installment loans based on predicted credit risk.
+- **Decision type:** High-stakes financial decision affecting long-term credit access.
+- **Primary objective:** Minimize default risk, stay profitable, and avoid unlawful or unethical discrimination.
+- **Protected attributes considered:** Gender, age, nationality/ethnicity (where lawful), disability status (via proxy risks).
+
+### 2 Historical Context Assessment
+
+- Identified patterns: redlining, disparate denial rates, biased creditworthiness assumptions, proxy discrimination.
+- Conclusion: systematic exclusion and under-representation confirmed.
+- Decision: ✅ **Demographic Parity** included as a primary consideration.
+
+### 3 Error Impact Analysis
+
+- FN: creditworthy applicant denied; FP: high-risk applicant approved.
+- Impact: FNs harm access to credit and opportunity; FPs mainly affect the institution and can be priced/monitored.
+- Decision: ✅ **Equal Opportunity** as the primary fairness definition.
+
+### 4 Outcome Calibration Assessment
+
+- System outputs a credit-risk score and approval threshold; analysts review scores.
+- Risk: uncalibrated scores could mean different default risks across groups.
+- Decision: ✅ **Sufficiency / Group Calibration** added as a secondary metric.
+
+### 5 Individual Fairness Assessment
+
+- Rich individual data and user expectations of similar treatment.
+- Decision: ✅ **Fairness Through Awareness** included to keep similar applicants aligned.
+
+### 6 Counterfactual and Smoothness Checks
+
+- Counterfactual: test whether changing only a protected attribute alters predictions without causal justification.
+- Similarity-based: ensure small input changes do not cause disproportionate prediction changes.
+- Decision: ✅ **Counterfactual Fairness** and **Similarity-Based Fairness** included as secondary safeguards.
+
+### 7 Trade-off and Prioritization
+
+- Conflicts: Demographic Parity may conflict with Predictive Parity; Equal Opportunity may reduce accuracy.
+- Resolution: Primary metrics — Equal Opportunity, Demographic Parity (monitoring/mitigation). Secondary — Calibration, Counterfactual Fairness, Similarity-Based Fairness.
+- Performance degradation accepted within predefined risk thresholds (aligned to high-risk system expectations).
+
+### 8 Final Fairness Definition Set
+
+- **Primary objectives:** Equal Opportunity; Demographic Parity (contextual monitoring).
+- **Secondary monitoring:** Sufficiency/Calibration; Fairness Through Awareness; Counterfactual Fairness; Similarity-Based Fairness.
+
+### 9 Key Takeaways
+
+- Historical context shaped the fairness strategy; error severity picked the primary metric.
+- Trade-offs were documented and accepted; no single metric is sufficient.
+- Process is repeatable, auditable, and regulator-aligned.
+
+### 10 Tool Value Demonstrated
+
+- Translates abstract fairness principles into concrete decisions.
+- Supports consistent fairness evaluations across teams.
+- Encourages transparency over “fairness by intuition.”
+- Aligns technical design with regulatory and ethical expectations.
+
+## **Bias Source Identification Tool**
+
+### 1 System Context
+
+- AI system assesses loan applications, predicting default risk and recommending approve/decline.
+- Historical context showed redlining, gender-based exclusion, and age-related disparities.
+- Fairness definition priorities: **Equal Opportunity** primary; monitor **Demographic Parity** due to historical underrepresentation.
+
+### 2 System Review
+
+- **Data sources:** 5 years of loan applications, repayment/default records, behavioral transaction data.
+- **Feature engineering:** income estimation, employment stability, credit utilization, payment history, geographic and device metadata.
+- **Prediction task:** binary classification (Approve / Decline).
+- **Target variable:** repayment outcome (default vs non-default).
+- **Decision threshold:** single risk cutoff applied to all applicants.
+
+### 3 Bias Source Identification
+
+- **Historical Bias in Default Labels:** Legacy lending practices embedded in labels; lower approval rates for women and older applicants despite comparable repayment.
+- **Representation Imbalance:** Older (60+) and migrant-background applicants underrepresented relative to population.
+- **Postal Code as Socioeconomic Proxy:** Geographic features correlate with income inequality (ρ ≈ 0.68).
+- **Income Estimation Variability:** Proxy-based income estimates 20% less accurate for self-employed and older applicants.
+- **Precision-Focused Optimization:** Objective favors minimizing FPs; FNs higher for women and 55+ → conflicts with Equal Opportunity.
+- **Uniform Approval Threshold:** Single cutoff yields unequal approval rates among equally creditworthy groups.
+
+**Feedback mechanisms:**
+
+- **Direct Feedback Loop Bias:** Approved applicants generate repayment data; denied applicants do not → widening confidence gaps by group.
+- **Indirect Feedback Loop Bias:** Repeated denials reduce applications from previously high-denial groups → shrinking, skewed applicant pool.
+- **User-Driven Feedback Bias:** Applicants adapt reporting (employment, income formatting) to perceived triggers → feature distribution shifts.
+- **System-Driven Feedback Bias:** Quarterly retraining can amplify disparities if constraints not re-applied.
+
+### 4 Prioritization Snapshot
+
+| Bias Source | Severity (1–5) | Scope (1–5) | Persistence (1–5) | Historical Alignment (1–5) | Intervention Feasibility (1–5) | Priority Score |
+| --- | --- | --- | --- | --- | --- | --- |
+| Historical Bias in Default Labels | 5 | 5 | 4 | 5 | 2 | **4.5 (High)** |
+| Representation Imbalance | 4 | 5 | 3 | 4 | 3 | **3.9 (Medium)** |
+| Postal Code as Proxy | 4 | 4 | 4 | 4 | 4 | **4.0 (High)** |
+| Income Estimation Variability | 3 | 4 | 3 | 3 | 4 | **3.4 (Medium)** |
+| Precision-Focused Optimization | 5 | 4 | 3 | 4 | 4 | **4.1 (High)** |
+| Uniform Approval Threshold | 4 | 5 | 4 | 5 | 5 | **4.5 (High)** |
+| Direct Feedback Loop | 4 | 5 | 5 | 4 | 3 | 4.3 (High) |
+| Indirect Feedback Loop | 5 | 4 | 5 | 5 | 2 | 4.4 (High) |
+| User-Driven Feedback | 3 | 3 | 4 | 3 | 4 | 3.3 (Medium) |
+| System-Driven Feedback | 5 | 5 | 5 | 4 | 3 | 4.6 (High) |
+
+### 5 Takeaways
+
+- Highest risks: label bias, optimization misalignment, uniform thresholds, and feedback loops.
+- Monitoring plus targeted mitigation needed for medium-priority items (representation, income estimation).
+
+## **Comprehensive Metrics Tool**
+
+### 1 System Context
+
+- AI-powered loan approval system; goal: ensure fairness objectives (Equal Opportunity primary) while tracking demographic monitoring (Demographic Parity) and bias sources from prior tools.
+
+### 2 Metric Selection
+
+**Primary metrics (aligned to Equal Opportunity):**
+
+- **True Positive Rate Difference (TPR Difference)**
+- **False Negative Rate Difference (FNR Difference)**
+
+**Secondary / monitored metrics:**
+
+- **Demographic Parity Difference (DPD)**
+- **Intersectional Equal Opportunity** (e.g., race × gender, age × gender)
+
+### 3 Implementation and Calculation
+
+1. **Dataset prep:** includes income, employment stability, credit history, age, gender, race; small intersectional groups flagged for special handling.
+2. **Metric calculation:** compute metrics for groups and intersections; bootstrap 95% CIs (10k resamples); BH-corrected significance tests.
+
+**Results (illustrative):**
+
+| Metric | Group | Point Estimate | 95% CI | Significance | Escalation Tier |
+| --- | --- | --- | --- | --- | --- |
+| TPR Difference | Race | 0.12 | [0.07, 0.18] | p < 0.01 | Immediate Action (0.99) |
+| FNR Difference | Gender | 0.08 | [0.03, 0.13] | p = 0.03 | Investigation (0.95) |
+| Demographic Parity | Age | 0.05 | [-0.01, 0.11] | p = 0.12 | Monitoring (0.90) |
+| Intersectional Equal Opportunity | Race × Gender | 0.15 | [0.06, 0.24] | p < 0.01 | Immediate Action (0.99) |
+
+### 4 Visualization and Reporting
+
+- Fairness disparity chart (TPR, FNR, DPD) with CIs and tiers.
+- Intersectional heatmap (magnitude and sample-size shading).
+- Pareto diagram (fairness vs technical performance).
+- Trade-off scatter plot (model variants vs fairness/performance).
+
+### 5 Interpretation and Action
+
+- Race TPR gap and intersectional EO exceed 0.99 tier → immediate intervention.
+- Gender FNR gap at 0.95 tier → investigate.
+- Age DPD monitored; no immediate action.
+- Pareto analysis shows potential model adjustments with minimal accuracy loss.
+
+### 6 Lessons Learned
+
+- Intersectional metrics surface hidden disparities.
+- CIs and significance testing focus action on real gaps.
+- Visuals make trade-offs intelligible to stakeholders.
+- Robustness checks keep fairness interventions stable across data shifts.
+
+## **Statistical Validation**
+
+### 1 Scenario
+
+- **Objective:** Validate fairness metrics with uncertainty handling.
+- **Data:** Same loan approval system; metrics from Equal Opportunity focus.
+
+### 2 Steps Applied
+
+1. **Point estimates:** TPR/FNR gaps by race, gender, age; intersectional EO.
+2. **Uncertainty:** 10k bootstrap CIs; small-group Bayesian shrinkage for sparse intersections.
+3. **Significance:** Null of no disparity; BH correction across all tested groups/metrics.
+4. **Escalation tiers:** 0.99 = act, 0.95 = investigate, 0.90 = monitor.
+
+### 3 Illustrative Results
+
+| Metric | Group | Point Estimate | 95% CI | Significance | Tier |
+| --- | --- | --- | --- | --- | --- |
+| TPR Difference | Race | 0.12 | [0.07, 0.18] | p < 0.01 | Immediate (0.99) |
+| FNR Difference | Gender | 0.08 | [0.03, 0.13] | p = 0.03 | Investigate (0.95) |
+| Demographic Parity | Age | 0.05 | [-0.01, 0.11] | p = 0.12 | Monitor (0.90) |
+| Intersectional EO | Race × Gender | 0.15 | [0.06, 0.24] | p < 0.01 | Immediate (0.99) |
+
+### 4 Takeaways
+
+- Confidence intervals prevent overreaction to small gaps.
+- Multiple-testing control avoids false alarms across many subgroups.
+- Escalation tiers tie stats to action, making reports decision-friendly.
+
+## **Implementation Guide**
+
+### 1 System Context
+
+The engineering team is developing an AI-powered loan application system for internal use, predicting creditworthiness and determining loan approvals.
+
+**Historical Context Assessment** revealed patterns of bias in lending, including:
+
+- Overrepresentation of approvals for higher-income applicants
+- Underrepresentation of minority and younger applicants
+- Subtle biases embedded in credit scoring data and application history
+
+**The Fairness Definition Selection Tool** prioritized **Equal Opportunity** as the primary fairness objective, ensuring that qualified applicants have equal chances of loan approval regardless of protected attributes. The **Bias Source Identification Tool** flagged potential sources of bias, including historical lending patterns, training data representation, and measurement bias in income and employment stability indicators.
+
+The **Fairness Metrics Tool** is now applied to quantitatively measure whether the system meets these fairness objectives.
+
+### 2 Metric Selection
+
+Based on the defined fairness objectives and identified bias sources, the team selected the following metrics:
+
+**Primary Metrics** (directly aligned with Equal Opportunity):
+
+- **True Positive Rate Difference (TPR Difference)** – measures whether qualified applicants (predicted as low default risk) have equal approval rates across demographic groups.
+- **False Negative Rate Difference (FNR Difference)** – evaluates the likelihood of incorrectly denying qualified applicants, important for minimizing harm.
+
+**Secondary / Monitored Metrics**:
+
+- **Demographic Parity Difference (DPD)** – tracks overall approval rate disparities for situational awareness.
+- **Intersectional Equal Opportunity** – captures disparities across combined protected attributes (e.g., race × age, gender × income bracket).
+
+### 3 Implementation and Calculation
+
+1. **Dataset Preparation**
+	- Dataset includes applicant attributes: income, employment stability, credit history, age, gender, and race.
+	- Protected attributes: race, gender, and age groups.
+	- Small intersectional groups identified (e.g., women under 25, minority senior applicants) flagged for special statistical handling.
+2. **Metric Calculation**
+	- Metrics computed for all groups and intersections.
+	- Bootstrapped **95% confidence intervals** estimated for each metric using 10,000 resamples.
+	- Statistical significance determined using null hypothesis tests (no disparity) with **Benjamini-Hochberg correction** for multiple comparisons.
+
+**Results (Dummy Values)**:
+
+| Metric | Group | Point Estimate | 95% CI | Significance | Escalation Tier |
+| --- | --- | --- | --- | --- | --- |
+| TPR Difference | Race | 0.12 | [0.07, 0.18] | p < 0.01 | Immediate Action (0.99) |
+| FNR Difference | Gender | 0.08 | [0.03, 0.13] | p = 0.03 | Investigation (0.95) |
+| Demographic Parity | Age | 0.05 | [-0.01, 0.11] | p = 0.12 | Monitoring (0.90) |
+| Intersectional Equal Opportunity | Race × Gender | 0.15 | [0.06, 0.24] | p < 0.01 | Immediate Action (0.99) |
+
+### 4 Visualization and Reporting
+
+**Charts Generated**:
+
+- **Fairness Disparity Chart** – bar chart showing TPR, FNR, and DPD for primary demographic groups with confidence intervals and escalation tiers highlighted.
+- **Intersectional Heatmap** – displays disparities across combined demographic subgroups, with color intensity representing magnitude and cell opacity representing sample size.
+- **Pareto Diagram** – visualizing trade-offs between fairness metrics and technical performance (accuracy, precision, recall).
+- **Trade-Off Scatter Plot** – each model variant plotted for combined fairness and predictive performance to guide selection.
+
+### 5 Interpretation and Action
+
+- The **TPR Difference for race** and **Intersectional Equal Opportunity** exceed the 0.99 threshold → **immediate intervention recommended**.
+- **FNR Difference for gender** falls in the 0.95 threshold → further investigation advised.
+- **Demographic Parity for age** is below the 0.90 threshold → monitored for trends but not actionable immediately.
+- Pareto analysis suggests potential model adjustments can improve fairness with minimal trade-off in accuracy.
+
+### 6 Lessons Learned
+
+- Intersectional metrics reveal disparities that single-attribute metrics would have missed, emphasizing the need for multi-dimensional evaluation.
+- Confidence intervals and statistical significance testing prevent overreaction to minor variations, ensuring resources target genuine fairness issues.
+- Visualizations make disparities and trade-offs interpretable for stakeholders, enabling data-driven decisions.
+- Robustness checks across cross-validation splits ensure fairness interventions remain valid under varying data conditions.
+
+### 7 Summary
+
+The Fairness Metrics Tool enabled systematic selection, computation, and interpretation of fairness metrics for the internal loan application system. By integrating statistical validation, intersectional analysis, and visualization, the team can now prioritize actionable disparities, track monitored metrics, and evaluate model modifications to optimize both fairness and technical performance.

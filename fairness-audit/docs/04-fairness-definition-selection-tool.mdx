@@ -1,0 +1,255 @@
+---
+sidebar_position: 4
+title: Fairness Definition Selection Tool
+slug: /fairness-definition-selection
+---
+
+# Fairness Definition Selection Tool
+
+<div className="print-wrap">
+    <button type="button" className="print-btn" onClick={() => window.print()}>
+        <span aria-hidden="true" role="img" className="print-icon">💾</span>
+        <span>Save filled page as PDF</span>
+    </button>
+    <span className="print-tip">Use your browser's print dialog and choose "Save as PDF" to keep filled inputs.</span>
+</div>
+
+> Looking for detailed metric definitions? See [Fairness Definition Literature](/fairness-definition-literature).
+
+## **Definition Selection Decision Tree**
+
+### Step 1: Historical Context Assessment
+
+**Question:** Has historical context analysis revealed systematic exclusion or under-representation of protected groups?
+
+- **If yes:** Include **Demographic Parity (Primary)** as a required fairness definition.
+    
+    > ***Example:*** Loan approvals historically favored one group; now rates should be balanced across all groups.
+    
+    → Proceed to **Step 2**
+    
+- **If no:** Proceed directly to **Step 2**
+
+<div className="question-block">
+    <strong>Notes for Step 1 (Historical Context)</strong>
+    <textarea className="note-area" rows={3} aria-label="Notes for Step 1 Historical Context" />
+</div>
+
+---
+
+### Step 2: Error-Impact Analysis
+
+Determine which type of prediction errors (false positives vs false negatives) have the greatest negative impact in your application context.
+
+**Question:** Which error type has greater negative impact?
+
+- **If false negatives (FN) are more harmful:** Include **Equal Opportunity (Primary)**
+    
+    > ***Example:*** In a medical diagnosis model, failing to detect disease in a patient could be life-threatening; focus on true positive fairness.
+    
+- **If false positives (FP) are more harmful:** Include **Predictive Parity (Primary)**
+    
+    > ***Example:*** Wrongly approving a high-risk loan could cause financial losses; ensure positive predictions are reliable across groups.
+    
+- **If both error types are equally critical:** Include **Equalized Odds (Primary)**
+    
+    > ***Example:*** In hiring or lending, both mistakenly approving risky candidates and denying qualified candidates have high costs.
+    
+
+→ Proceed to **Step 3**
+
+<div className="question-block">
+    <strong>Notes for Step 2 (Error Impact)</strong>
+    <textarea className="note-area" rows={3} aria-label="Notes for Step 2 Error Impact" />
+</div>
+
+---
+
+### Step 3: Outcome Calibration Assessment
+
+**Question:** Will the system expose probabilistic scores to users or analysts (e.g., credit-risk scores, insurance pricing, ranking algorithms)?
+
+- **If yes:** Include **Sufficiency / Group-Calibrated Scores (Secondary)**
+    
+    > ***Example:*** Credit scores must have the same meaning across demographic groups.
+    
+- **If no:** Use the definitions selected in previous steps.
+
+→ Proceed to **Step 4**
+
+<div className="question-block">
+    <strong>Notes for Step 3 (Calibration)</strong>
+    <textarea className="note-area" rows={3} aria-label="Notes for Step 3 Calibration" />
+</div>
+
+---
+
+### Step 4: Individual Fairness Assessment
+
+**Question:** Do decisions involve individuals whose outcomes should be treated based on similarity rather than group averages?
+
+- **If yes:** Include **Fairness Through Awareness (Primary)**
+    
+    > ***Example:*** Applicants with similar qualifications should receive similar admission or hiring scores.
+    
+- **If no:** Proceed to Step 5
+
+<div className="question-block">
+    <strong>Notes for Step 4 (Individual Fairness)</strong>
+    <textarea className="note-area" rows={3} aria-label="Notes for Step 4 Individual Fairness" />
+</div>
+
+---
+
+### Step 5: Input-Output Smoothness and Counterfactual Assessment
+
+**Question 5a:** Should predictions vary smoothly with input similarity (technical constraint / Lipschitz continuity)?
+
+- **If yes:** Include **Similarity-Based Fairness (Secondary)**
+    
+    > ***Example:*** Small differences in resumes should lead to proportionally small differences in hiring scores.
+    
+
+**Question 5b:** Should predictions remain unchanged under hypothetical changes to protected attributes?
+
+- **If yes:** Include **Counterfactual Fairness (Secondary)**
+    
+    > ***Example:*** Credit scores should remain consistent if only the applicant’s race or gender were different.
+
+<div className="question-block">
+    <strong>Notes for Step 5 (Smoothness & Counterfactuals)</strong>
+    <textarea className="note-area" rows={3} aria-label="Notes for Step 5 Smoothness and Counterfactuals" />
+</div>
+
+---
+
+### Step 6: Trade-off and Prioritization Check
+
+**Question:** Are there conflicts between selected fairness definitions (e.g., Demographic Parity vs Predictive Parity)?
+
+- **If yes:** Determine which metric aligns best with **application context, regulatory constraints, and stakeholder priorities**.
+    
+    *Example:* *For high-stakes lending, predictive parity may take precedence over demographic parity.*
+    
+- **If no:** Proceed to implement selected fairness definitions.
+
+<div className="question-block">
+    <strong>Notes for Step 6 (Trade-offs)</strong>
+    <textarea className="note-area" rows={3} aria-label="Notes for Step 6 Trade-offs" />
+</div>
+
+---
+
+### Summary / Guidance
+
+- **Primary Metrics:** Core fairness definitions to satisfy the main fairness goal (historical context + error impact).
+- **Secondary Metrics:** Refinements or technical safeguards (calibration, input-output smoothness, counterfactual checks).
+- **Application Considerations:** Always balance societal impact, historical patterns, and technical feasibility.
+
+## **Your Application**
+
+### Application Context
+
+<div className="question-block">
+    <strong>Application Name / Domain</strong>
+    <textarea className="note-area" rows={2} aria-label="Application domain" />
+</div>
+
+<div className="question-block">
+    <strong>Objective</strong>
+    <textarea className="note-area" rows={2} aria-label="Objective" />
+</div>
+
+<div className="question-block">
+    <strong>Key Protected Attributes</strong>
+    <textarea className="note-area" rows={2} aria-label="Protected attributes" />
+</div>
+
+<div className="question-block">
+    <strong>Decision Impact</strong>
+    <p><em>e.g., hiring, lending, medical diagnosis</em></p>
+    <textarea className="note-area" rows={2} aria-label="Decision impact" />
+</div>
+
+<div className="question-block">
+    <strong>Intersectionality Findings</strong>
+    <p><em>e.g., combined impacts across gender × ethnicity × income; subgroups with compounded risk or exclusion.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Intersectionality findings" />
+</div>
+
+---
+
+### Selected Fairness Definition Documentation
+
+<div className="question-block">
+    <strong>Primary Fairness Definition Selected</strong>
+    <p><em>Example: Equal Opportunity / Equality of True Positive Rates</em></p>
+    <textarea className="note-area" rows={2} aria-label="Primary fairness definition" />
+</div>
+
+<div className="question-block">
+    <strong>Mathematical Formulation</strong>
+    <p><em>Include the LaTeX or plain-text equation, e.g., P(Ŷ = 1 | Y = 1, A = a) = P(Ŷ = 1 | Y = 1, A = b)</em></p>
+    <textarea className="note-area" rows={3} aria-label="Mathematical formulation" />
+</div>
+
+<div className="question-block">
+    <strong>Selection Rationale</strong>
+    <p><em>Document historical context, application requirements, and stakeholder priorities driving the choice.</em></p>
+    <textarea className="note-area" rows={4} aria-label="Selection rationale" />
+</div>
+
+---
+
+### Trade-Off Acknowledgment
+
+<div className="question-block">
+    <strong>Fairness Properties Not Satisfied</strong>
+    <p><em>Which metrics are not guaranteed? e.g., Demographic Parity, Equalized Odds.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Fairness properties not satisfied" />
+</div>
+
+<div className="question-block">
+    <strong>Performance Implications</strong>
+    <p><em>Impact on accuracy, precision/recall, interview pool size, cost, or throughput.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Performance implications" />
+</div>
+
+<div className="question-block">
+    <strong>Secondary Metrics / Monitoring Approach</strong>
+    <p><em>Which additional metrics will be tracked? How often? How will results be reviewed?</em></p>
+    <textarea className="note-area" rows={3} aria-label="Secondary metrics" />
+</div>
+    
+
+---
+
+### Optional Extensions
+
+<div className="question-block">
+    <strong>Scenario Analysis / Stress Testing</strong>
+    <p><em>Simulate extreme cases to evaluate metric robustness across group distributions.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Scenario analysis" />
+</div>
+
+<div className="question-block">
+    <strong>Implementation Notes</strong>
+    <p><em>Technical constraints, data transformations, or training adjustments.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Implementation notes" />
+</div>
+
+<div className="question-block">
+    <strong>Decision Review & Updates</strong>
+    <p><em>Plan for revisiting fairness choices based on performance, legal requirements, or stakeholder priorities.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Decision review" />
+</div>
+
+---
+
+### Sources / References
+
+<div className="question-block">
+    <strong>Sources and Evidence</strong>
+    <p><em>Link datasets, regulations, stakeholder guidance, or research that informed selections.</em></p>
+    <textarea className="note-area" rows={3} aria-label="Sources and evidence" />
+</div>
