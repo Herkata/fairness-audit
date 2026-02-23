@@ -22,15 +22,16 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: 'https://kaherna.github.io',
+  url: 'https://herkata.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/kaherna-AIET.1.5.1/',
+  baseUrl: '/Fairness_playbook/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'kaherna', // GitHub org/user name
-  projectName: 'kaherna-AIET.1.5.1', // GitHub repo name
+  organizationName: 'Herkata', // GitHub org/user name
+  projectName: 'Fairness_playbook', // GitHub repo name
+  deploymentBranch: 'gh-pages',
 
   onBrokenLinks: 'throw',
 
@@ -52,7 +53,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/kaherna/kaherna-AIET.1.5.1/tree/main/fairness-audit/',
+            'https://github.com/Herkata/Fairness_playbook/tree/main/fairness-audit/',
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
@@ -65,7 +66,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/kaherna/kaherna-AIET.1.5.1/tree/main/fairness-audit/',
+            'https://github.com/Herkata/Fairness_playbook/tree/main/fairness-audit/',
           remarkPlugins: [math],
           rehypePlugins: [katex],
           // Useful options to enforce blogging best practices
@@ -115,7 +116,7 @@ const config = {
             label: 'Sources and Plans',
           },
           {
-            href: 'https://github.com/kaherna/kaherna-AIET.1.5.1',
+            href: 'https://github.com/Herkata/Fairness_playbook',
             label: 'GitHub',
             position: 'right',
           },
@@ -155,12 +156,12 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/kaherna/kaherna-AIET.1.5.1',
+                href: 'https://github.com/Herkata/Fairness_playbook',
               },
             ],
           },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        copyright: `Copyright © ${new Date().getFullYear()} Fairness Audit Playbook. Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,

@@ -4,6 +4,8 @@ slug: /reporting
 sidebar_position: 12
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 # Reporting and Visualization
 
 ## **1 Visualization and Reporting**
@@ -145,7 +147,7 @@ It also prevents “fairness alarm fatigue.”
     - Color-coded by statistical significance or escalation tiers
     - Reference lines for thresholds (monitor, investigate, immediate action)
 
-<img src="/img/dummy-fairness-disparity.svg" alt="Fairness disparity demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-fairness-disparity.svg')} alt="Fairness disparity demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Fairness gap per group; bars show group rates, dotted line is parity target, whiskers are CIs.
 
 ### 10.2 Intersectional Heatmap
@@ -157,7 +159,7 @@ Fairness gap per group; bars show group rates, dotted line is parity target, whi
     - Cell size or opacity = sample size
     - Optional: overlay significance markers
 
-<img src="/img/dummy-intersectional-heatmap.svg" alt="Intersectional heatmap demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-intersectional-heatmap.svg')} alt="Intersectional heatmap demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Rows = gender bands, columns = groups; colors encode disparity (green low, amber medium, red high).
 
 ### 10.3 Pareto Diagram of Fairness Metrics
@@ -170,7 +172,7 @@ Rows = gender bands, columns = groups; colors encode disparity (green low, amber
     - Right Y-axis = cumulative % contribution (line)
     - Color bars by escalation tier
 
-<img src="/img/dummy-pareto-fairness.svg" alt="Pareto of fairness metrics demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-pareto-fairness.svg')} alt="Pareto of fairness metrics demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Cumulative line shows coverage by top fairness gaps; bars are ordered by contribution.
 
 ### 10.4 Pareto Diagram of Technical Metrics
@@ -181,7 +183,7 @@ Cumulative line shows coverage by top fairness gaps; bars are ordered by contrib
     - Same structure as fairness Pareto
     - Optional overlay = confidence in metrics
 
-<img src="/img/dummy-pareto-technical.svg" alt="Pareto of technical metrics demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-pareto-technical.svg')} alt="Pareto of technical metrics demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Same as fairness Pareto but for technical metrics (acc, AUC, F1, calibration, drift).
 
 ### 10.5 Fairness vs Technical Trade-Off Scatter Plot
@@ -194,7 +196,7 @@ Same as fairness Pareto but for technical metrics (acc, AUC, F1, calibration, dr
     - Point color/size = confidence intervals or escalation tier
     - Pareto frontier line showing optimal trade-offs
 
-<img src="/img/dummy-fairness-technical-scatter.svg" alt="Fairness vs technical scatter demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-fairness-technical-scatter.svg')} alt="Fairness vs technical scatter demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Accuracy on X, fairness gap on Y; bottom-right is better (higher accuracy, lower gap).
 
 ### 10.6 Cumulative Disparity Line Chart
@@ -206,7 +208,7 @@ Accuracy on X, fairness gap on Y; bottom-right is better (higher accuracy, lower
     - Y-axis = cumulative disparity
     - Overlay multiple metrics for comparison
 
-<img src="/img/dummy-cumulative-disparity.svg" alt="Cumulative disparity demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-cumulative-disparity.svg')} alt="Cumulative disparity demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Line accumulates disparity across ordered groups to show worst-tail impact.
 
 ### 10.7 Confidence Interval Ribbon Chart
@@ -218,7 +220,7 @@ Line accumulates disparity across ordered groups to show worst-tail impact.
     - Shaded ribbon = confidence interval
     - Optional: color by escalation tier or threshold level
 
-<img src="/img/dummy-confidence-ribbon.svg" alt="Confidence interval ribbon demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-confidence-ribbon.svg')} alt="Confidence interval ribbon demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Ribbon is 95% CI; center line is point estimate across time/versions.
 
 ### 10.8 Threshold Alert Chart
@@ -230,7 +232,7 @@ Ribbon is 95% CI; center line is point estimate across time/versions.
     - Bars = metric values with confidence intervals
     - Color-coded alerts for exceeding thresholds
 
-<img src="/img/dummy-threshold-alert.svg" alt="Threshold alert demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-threshold-alert.svg')} alt="Threshold alert demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Bands mark monitor/investigate/immediate tiers; bars show metric values against those bands.
 
 ### 10.9 Metric Evolution Over Time
@@ -242,7 +244,7 @@ Bands mark monitor/investigate/immediate tiers; bars show metric values against 
     - Shaded confidence intervals
     - Highlight intervention points or policy changes
 
-<img src="/img/dummy-metric-evolution.svg" alt="Metric evolution demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-metric-evolution.svg')} alt="Metric evolution demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Blue line = fairness gap trend; orange = accuracy; marker indicates intervention point.
 
 ### 10.10 Small Sample / Intersectional Uncertainty Chart
@@ -255,7 +257,7 @@ Blue line = fairness gap trend; orange = accuracy; marker indicates intervention
     - Bubble size = sample size
     - Bubble color = confidence interval width
 
-<img src="/img/dummy-small-sample-bubble.svg" alt="Small sample bubble demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
+<img src={useBaseUrl('/img/dummy-small-sample-bubble.svg')} alt="Small sample bubble demo" style={{maxWidth: '620px', width: '100%', display: 'block', margin: '12px 0'}} />
 Y = disparity, X = sample size proxy; bubble size = N, color can encode stability.
 
 ## **11 Notes**
